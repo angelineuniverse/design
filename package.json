@@ -5,12 +5,12 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/angelineuniverse/angeline-cli.git"
+    "url": "git+https://github.com/angelineuniverse/design.git"
   },
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://github.com/angelineuniverse/angeline-cli",
+  "homepage": "https://github.com/angelineuniverse/design",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
