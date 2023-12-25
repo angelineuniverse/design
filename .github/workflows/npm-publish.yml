@@ -19,7 +19,7 @@ jobs:
       - name: npm installed
         run: npm install
       - name: installed devDependencies
-        run: npm install -D tslib tailwindcss postcss rollup rollup-plugin-postcss @rollup/plugin-commonjs @rollup/plugin-node-resolve @rollup/plugin-typescript rollup-plugin-dts rollup-plugin-peer-deps-external @rollup/plugin-terser
+        run: npm install -D tslib tailwindcss postcss rollup rollup-plugin-postcss @rollup/plugin-commonjs @rollup/plugin-node-resolve @rollup/plugin-typescript rollup-plugin-dts rollup-plugin-peer-deps-external @rollup/plugin-terser clsx
       - name: building rollup
         run: npm run cli
       - name: publish to npm package
