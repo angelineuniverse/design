@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base{
+  @font-face {
+    font-family: EuclidBold;
+    src: url('./assets/font/Euclid_Circular_A_Bold.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: Euclidmedium;
+    src: url('./assets/font/Euclid_Circular_A_Medium.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: Euclidreguler;
+    src: url('./assets/font/Euclid_Circular_A_Regular.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: Euclidlight;
+    src: url('./assets/font/Euclid_Circular_A_Light.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: Euclidsemi;
+    src: url('./assets/font/Euclid_Circular_A_SemiBold.ttf') format('truetype');
+  }
+}
