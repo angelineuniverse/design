@@ -1,5 +1,5 @@
 import React from "react";
-import { CodeBlok } from "../../library";
+import { Button, CodeBlok } from "../../library";
 function ViewButton() {
   return (
     <div>
@@ -14,6 +14,14 @@ function ViewButton() {
       </p>
       <h1 className="mt-10 mb-6 font-euclidsemi text-xl">Instalasi</h1>
       <CodeBlok code={`import { Button } from "@angelineuniverse/design";`} />
+      <h1 className="mt-10 mb-6 font-euclidsemi text-xl">Penggunaan</h1>
+      <div className="flex justify-start gap-x-2">
+        <Button label="Edit" variant="primary" size="xxs" />
+        <Button label="Edit" variant="secondary" size="xxs" />
+        <Button label="Edit" variant="outline" size="xxs" />
+        <Button label="Edit" variant="edit" size="xxs" />
+        <Button label="Edit" variant="error" size="xxs" />
+      </div>
     </div>
   );
 }
