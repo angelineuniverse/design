@@ -1,4 +1,4 @@
-type IconType = 'check' | 'copy' | 'error' | 'eye' | 'hideEye';
+export type IconType = 'check' | 'copy' | 'error' | 'eye' | 'hideEye' | 'download';
 export interface Model {
     icon: IconType,
     width: number,
