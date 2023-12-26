@@ -32,6 +32,8 @@ module.exports = {
         secondary: "#EA047E",
         "primary-light": "#1A508B",
         "secondary-light": "#FB2576",
+        green: "#3A4D39",
+        "green-light": "#4F6F52",
       },
     },
   },
