@@ -39,6 +39,12 @@ const Sidenav = () => {
         >
           <span>Input</span>
         </NavLink>
+        <NavLink
+          to={"component/table"}
+          className={({ isActive }) => (isActive ? "text-secondary" : "")}
+        >
+          <span>Table</span>
+        </NavLink>
       </div>
     </div>
   );

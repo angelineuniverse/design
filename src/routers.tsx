@@ -6,6 +6,7 @@ import ViewButton from "./view/components/button";
 import ComponentIndex from "./view/components/_index";
 import ViewInput from "./view/components/input";
 import ViewIcon from "./view/components/icon";
+import ViewTable from "./view/components/table";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
           {
             path: "input",
             element: <ViewInput />,
+          },
+          {
+            path: "table",
+            element: <ViewTable />,
           },
         ],
       },
