@@ -2,6 +2,7 @@ import React from "react";
 import { Model } from "./model";
 import clsx from "clsx";
 import Button from "../Button";
+import Tag from "../Tag";
 const Table: React.FC<Model> = (model: Model) => {
   const ColumnAlign = {
     start: "text-start",
@@ -15,37 +16,47 @@ const Table: React.FC<Model> = (model: Model) => {
         key={model.tableName}
         aria-describedby={model.tableName}
         className={clsx(
-          "w-full border-collapse",
+          "w-full border-collapse table-fixed",
           model.isBorder ? "border" : "",
           model.isCompact ? "text-xs" : "text-sm"
         )}
       >
         <thead>
-          <tr className={clsx("bg-slate-50 border-b border-b-slate-400/45")}>
+          <tr className={clsx("bg-[#f4f6f8] border-b border-b-slate-400/45")}>
             {model.column.map((element) => (
-              <td
+              <th
                 className={clsx(
-                  "border-b-slate-600",
-                  "py-2 px-3 font-medium text-gray-600/95",
+                  model.columnstyle,
+                  "border-b-slate-600 whitespace-nowrap",
+                  "py-2 px-3 text-gray-800",
                   ColumnAlign[element.align!],
                   model.isBorder ? "border border-gray-300" : "",
+                  element.width ?? "",
                   element.className
                 )}
                 key={element.key}
                 {...element.props!}
               >
                 {element.title}
-              </td>
+              </th>
             ))}
           </tr>
         </thead>
         <tbody>
           {model.data.map((element) => (
-            <tr key={element.id} className={clsx("border-b")}>
+            <tr key={element.id} className={clsx("border-b break-words")}>
               {model.column.map((item) => (
-                <td key={item.key} className={clsx("p-2.5")}>
+                <td key={item.key} className={clsx("p-2.5", item.rowStyle)}>
                   {(() => {
                     switch (item.datatype) {
+                      case "array_code":
+                        return (
+                          <div className="flex flex-wrap justify-start gap-2">
+                            {element[item.key].map((child: string) => (
+                              <Tag type="code" value={child} key={child} />
+                            ))}
+                          </div>
+                        );
                       case "array":
                         return (
                           <div className="gap-y-2">

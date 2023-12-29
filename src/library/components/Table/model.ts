@@ -4,18 +4,20 @@ export interface Model {
     data: Array<any>;
     isCompact?: boolean;
     isBorder?: boolean;
+    columnstyle?: string;
 }
 
 
 type ColumnAlign = 'start' | 'center' | 'justify' | 'end';
-type ColumnDataType = 'text' | 'number' | 'array' | 'action';
+type ColumnDataType = 'text' | 'number' | 'array' | 'array_code' | 'action';
 interface Columns {
     key: string;
     title: string;
     align?: ColumnAlign;
+    width?: string;
     datatype?: ColumnDataType;
     child?: Array<ActionChild>;
-    slot?: React.ReactNode;
+    rowStyle?: string;
     className?: string;
     props?: React.TdHTMLAttributes<HTMLTableCellElement>
 }
