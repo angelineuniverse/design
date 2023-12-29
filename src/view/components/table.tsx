@@ -1,5 +1,6 @@
 import React from "react";
-import { CodeBlok, Table } from "../../library";
+import { Table } from "../../library";
+import PrismCode from "../../utils/prism";
 const ViewTable = () => {
   return (
     <div>
@@ -8,7 +9,7 @@ const ViewTable = () => {
         item, dan setiap kolom adalah titik data tentang item tersebut.
       </p>
       <h1 className="mt-10 mb-6 font-euclidsemi text-xl">Instalasi</h1>
-      <CodeBlok code={`import { Table } from "@angelineuniverse/design";`} />
+      <PrismCode code={`import { Table } from "@angelineuniverse/design";`} />
       <h1 className="mt-10 mb-6 font-euclidsemi text-xl">Penggunaan</h1>
       <Table
         tableName="example-table"

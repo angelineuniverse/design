@@ -4,7 +4,7 @@ import { Link, Outlet } from "react-router-dom";
 import { Button } from "../library";
 function App() {
   return (
-    <div className="h-screen max-h-screen w-full grid grid-cols-6 overflow-hidden">
+    <div className="h-screen w-full grid grid-cols-6 overflow-hidden">
       <nav className="col-span-full h-12 px-8 bg-white md:flex gap-x-5 justify-start md:text-sm items-center border border-slate-300">
         <h2 className="text-primary font-euclidbold text-lg mr-auto">
           Angeline
@@ -23,7 +23,7 @@ function App() {
         <Sidenav />
       </div>
       <div className="md:col-span-5 overflow-y-auto relative">
-        <div className="md:w-8/12 md:px-8">
+        <div className="md:w-8/12 md:px-8 pb-20">
           <Outlet />
         </div>
         <div className="md:fixed bottom-3 right-5 p-5 rounded-lg bg-primary text-white md:w-[15%] text-xs font-euclidregular">

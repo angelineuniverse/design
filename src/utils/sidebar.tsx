@@ -1,9 +1,31 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { routeConfig } from "../routers";
 const Sidenav = () => {
   return (
-    <div className="md:mt-4 grid grid-cols-1 gap-5 text-xs text-gray-700 font-euclidregular">
-      <div className="grid grid-cols-1 gap-3 md:px-8">
+    <div className="text-xs text-gray-700 font-euclidregular">
+      {routeConfig.map((route) => (
+        <div className="md:mt-4 grid grid-cols-1 gap-5" key={route.id}>
+          <div className="grid grid-cols-1 gap-3 md:px-8">
+            <h1 className="font-euclidsemi text-xs capitalize">{route.id}</h1>
+            {route.children.map((child) => (
+              <NavLink
+                key={child.id}
+                to={
+                  route.path === "/"
+                    ? route.path + child.path
+                    : route.path + "/" + child.id
+                }
+                className={({ isActive }) => (isActive ? "text-secondary" : "")}
+              >
+                <span className=" capitalize">{child.id}</span>
+              </NavLink>
+            ))}
+          </div>
+          <div className="border border-t w-full"></div>
+        </div>
+      ))}
+      {/* <div className="grid grid-cols-1 gap-3 md:px-8">
         <h1 className="font-euclidsemi text-xs">Guides</h1>
         <NavLink
           to={"/"}
@@ -21,31 +43,16 @@ const Sidenav = () => {
       <div className="border border-t w-full"></div>
       <div className="grid grid-cols-1 gap-3 md:px-8">
         <h1 className="font-euclidsemi text-xs">Components</h1>
-        <NavLink
-          to={"component/button"}
-          className={({ isActive }) => (isActive ? "text-secondary" : "")}
-        >
-          <span>Button</span>
-        </NavLink>
-        <NavLink
-          to={"component/icon"}
-          className={({ isActive }) => (isActive ? "text-secondary" : "")}
-        >
-          <span>Icon</span>
-        </NavLink>
-        <NavLink
-          to={"component/input"}
-          className={({ isActive }) => (isActive ? "text-secondary" : "")}
-        >
-          <span>Input</span>
-        </NavLink>
-        <NavLink
-          to={"component/table"}
-          className={({ isActive }) => (isActive ? "text-secondary" : "")}
-        >
-          <span>Table</span>
-        </NavLink>
-      </div>
+        {routeComponent.map((item) => (
+          <NavLink
+            key={item.path}
+            to={"component/" + item.path}
+            className={({ isActive }) => (isActive ? "text-secondary" : "")}
+          >
+            <span className=" capitalize">{item.path}</span>
+          </NavLink>
+        ))}
+      </div> */}
     </div>
   );
 };

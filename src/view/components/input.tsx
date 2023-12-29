@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { CodeBlok, Input } from "../../library";
+import { Input } from "../../library";
+import PrismCode from "../../utils/prism";
 
 const ViewInput = () => {
   const [value, setValue] = useState("");
@@ -11,7 +12,7 @@ const ViewInput = () => {
         ketika type="number" diteruskan ke komponen.
       </p>
       <h1 className="mt-10 mb-6 font-euclidsemi text-xl">Instalasi</h1>
-      <CodeBlok code={`import { Input } from "@angelineuniverse/design";`} />
+      <PrismCode code={`import { Input } from "@angelineuniverse/design";`} />
       <h1 className="mt-10 mb-6 font-euclidsemi text-xl">Penggunaan</h1>
       <Input
         value={value}
