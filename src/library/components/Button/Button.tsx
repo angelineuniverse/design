@@ -33,20 +33,30 @@ const Button: React.FC<Model> = (model: Model) => {
         model.useIcon
           ? "inline-flex gap-x-1.5 items-center justify-center"
           : "block",
-        buttonSize[model.size!],
-        variantColor[model.variant!],
-        buttonWidth[model.width!],
+        buttonSize[model.size ?? "xxs"],
+        variantColor[model.variant ?? "primary"],
+        buttonWidth[model.width ?? "wrap"],
         model.anotherClass
       )}
       {...model.props!}
       type={model.type}
     >
+      {model.isLoading && (
+        <Icon
+          icon={model.iconProps?.icon!}
+          width={model.iconProps?.width!}
+          height={model.iconProps?.height!}
+          color={model.iconProps?.color}
+          props={model.iconProps?.props}
+        />
+      )}
       {model.useIcon && model.iconDirection === "left" && (
         <Icon
           width={model.iconProps?.width!}
           height={model.iconProps?.height!}
           color={model.iconProps?.color ?? "#ffffff"}
           icon={model.iconProps?.icon!}
+          props={model.iconProps?.props}
         />
       )}
       <span>{model.label}</span>
@@ -56,6 +66,7 @@ const Button: React.FC<Model> = (model: Model) => {
           height={model.iconProps?.height!}
           color={model.iconProps?.color ?? "#ffffff"}
           icon={model.iconProps?.icon!}
+          props={model.iconProps?.props}
         />
       )}
     </button>
