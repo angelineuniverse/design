@@ -1,6 +1,6 @@
 {
   "name": "@angelineuniverse/design",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": false,
   "type": "module",
   "repository": {
@@ -59,11 +59,13 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.5",
+    "@types/react-syntax-highlighter": "^15.5.11",
     "clsx": "^2.0.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "postcss": "^8.4.32",
     "react-router-dom": "^6.21.1",
+    "react-syntax-highlighter": "^15.5.0",
     "rollup": "^4.9.1",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
@@ -72,13 +74,13 @@
     "tailwindcss": "^3.4.0",
     "tslib": "^2.6.2"
   },
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
   "files": [
-    "dist",
+    "lib",
     "src"
   ],
-  "types": "dist/index.d.ts",
+  "types": "lib/index.d.ts",
   "keywords": [
     "Angeline Universe",
     "Design",
