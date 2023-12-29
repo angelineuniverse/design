@@ -57,12 +57,17 @@ export const routeConfig = [
     children: routeComponent,
   },
 ];
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App />,
+      children: routeConfig,
+    },
+  ],
   {
-    path: "/",
-    element: <App />,
-    children: routeConfig,
-  },
-]);
+    basename: "/design",
+  }
+);
 
 export default router;
