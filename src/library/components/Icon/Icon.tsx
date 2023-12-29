@@ -4,6 +4,7 @@ const Icon: React.FC<Model> = (model: Model) => {
   const Icons = {
     check: (
       <svg
+        {...model.props}
         width={`${model.width}px`}
         height={`${model.height}px`}
         viewBox="0 0 24 24"
@@ -24,6 +25,7 @@ const Icon: React.FC<Model> = (model: Model) => {
     ),
     copy: (
       <svg
+        {...model.props}
         width={`${model.width}px`}
         height={`${model.height}px`}
         viewBox="0 0 24 24"
@@ -41,6 +43,7 @@ const Icon: React.FC<Model> = (model: Model) => {
     ),
     error: (
       <svg
+        {...model.props}
         fill={`${model.color ?? "#C80000"}`}
         width={`${model.width}px`}
         height={`${model.height}px`}
@@ -52,6 +55,7 @@ const Icon: React.FC<Model> = (model: Model) => {
     ),
     eye: (
       <svg
+        {...model.props}
         width={`${model.width}px`}
         height={`${model.height}px`}
         viewBox="0 0 24 24"
@@ -72,6 +76,7 @@ const Icon: React.FC<Model> = (model: Model) => {
     ),
     hideEye: (
       <svg
+        {...model.props}
         width={`${model.width}px`}
         height={`${model.height}px`}
         viewBox="0 0 24 24"
@@ -86,6 +91,7 @@ const Icon: React.FC<Model> = (model: Model) => {
     ),
     download: (
       <svg
+        {...model.props}
         width={`${model.width}px`}
         height={`${model.height}px`}
         viewBox="0 0 24 24"
@@ -115,8 +121,25 @@ const Icon: React.FC<Model> = (model: Model) => {
         />
       </svg>
     ),
+    loading: (
+      <svg
+        {...model.props}
+        width={`${model.width}px`}
+        height={`${model.height}px`}
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M20.0001 12C20.0001 13.3811 19.6425 14.7386 18.9623 15.9405C18.282 17.1424 17.3022 18.1477 16.1182 18.8587C14.9341 19.5696 13.5862 19.9619 12.2056 19.9974C10.825 20.0328 9.45873 19.7103 8.23975 19.0612"
+          stroke={`${model.color ?? "#000000"}`}
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </svg>
+    ),
   };
-  return <div {...model.props}>{Icons[model.icon]}</div>;
+  return <div>{Icons[model.icon]}</div>;
 };
 
 export default Icon;
