@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/design/static/css/main.b6551143.css",
+    "main.js": "/design/static/js/main.f5d610c5.js",
+    "static/js/787.a4862444.chunk.js": "/design/static/js/787.a4862444.chunk.js",
+    "static/media/Euclid_Circular_A_Medium.ttf": "/design/static/media/Euclid_Circular_A_Medium.a5befbfcb71cd093cc56.ttf",
+    "static/media/Euclid_Circular_A_Regular.ttf": "/design/static/media/Euclid_Circular_A_Regular.d54600880dc63db716f2.ttf",
+    "static/media/Euclid_Circular_A_SemiBold.ttf": "/design/static/media/Euclid_Circular_A_SemiBold.ae11344face2a74d2042.ttf",
+    "static/media/Euclid_Circular_A_Bold.ttf": "/design/static/media/Euclid_Circular_A_Bold.b4788f2f8f64a74fe6d6.ttf",
+    "static/media/Euclid_Circular_A_Light.ttf": "/design/static/media/Euclid_Circular_A_Light.29f6c14f6218727ca4be.ttf",
+    "index.html": "/design/index.html",
+    "main.b6551143.css.map": "/design/static/css/main.b6551143.css.map",
+    "main.f5d610c5.js.map": "/design/static/js/main.f5d610c5.js.map",
+    "787.a4862444.chunk.js.map": "/design/static/js/787.a4862444.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b6551143.css",
+    "static/js/main.f5d610c5.js"
+  ]
+}
