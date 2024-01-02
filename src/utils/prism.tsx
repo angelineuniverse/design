@@ -1,7 +1,7 @@
 import React from "react";
 import type { CSSProperties } from "react";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
-import { coldarkCold } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import tsx from "react-syntax-highlighter/dist/esm/languages/prism/tsx";
 import { Icon } from "../library";
 SyntaxHighlighter.registerLanguage("tsx", tsx);
@@ -32,10 +32,10 @@ const PrismCode = (model: Model) => {
       <SyntaxHighlighter
         showLineNumbers={model.showLine}
         language="tsx"
-        style={coldarkCold}
+        style={vscDarkPlus}
         showInlineLineNumbers={false}
         customStyle={{
-          background: "#FBFBFB",
+          // background: "#FBFBFB",
           borderRadius: "8px",
           padding: "12px",
           border: "1px solid #D3D3D3",
