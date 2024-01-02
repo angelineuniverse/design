@@ -19,8 +19,15 @@ const Button: React.FC<Model> = (model: Model) => {
     xxs: "text-xxs px-2 py-1",
     xs: "text-xs px-3 py-1",
     sm: "text-sm px-3 py-1",
-    lg: "text-lg px-5 py-1",
-    xl: "text-xl px-5 py-1",
+    lg: "text-lg px-4 py-1",
+    xl: "text-xl px-5 py-2",
+  };
+  const buttonLoadingSize = {
+    xxs: 12,
+    xs: 14,
+    sm: 16,
+    lg: 20,
+    xl: 25,
   };
   return (
     <button
@@ -42,13 +49,28 @@ const Button: React.FC<Model> = (model: Model) => {
       type={model.type}
     >
       {model.isLoading && (
-        <Icon
-          icon={model.iconProps?.icon!}
-          width={model.iconProps?.width!}
-          height={model.iconProps?.height!}
-          color={model.iconProps?.color}
-          props={model.iconProps?.props}
-        />
+        <>
+          {model.iconProps && (
+            <Icon
+              icon={model.iconProps.icon}
+              width={model.iconProps.width}
+              height={model.iconProps.height}
+              color={model.iconProps.color}
+              props={model.iconProps.props}
+            />
+          )}
+          {!model.iconProps && !model.useIcon && (
+            <Icon
+              icon={"loading"}
+              width={buttonLoadingSize[model.size ?? "xxs"]}
+              height={buttonLoadingSize[model.size ?? "xxs"]}
+              color={"#fff"}
+              props={{
+                className: "animate-spin mr-2",
+              }}
+            />
+          )}
+        </>
       )}
       {model.useIcon && model.iconDirection === "left" && (
         <Icon
