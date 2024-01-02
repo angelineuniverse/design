@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "./view/App";
 import React from "react";
-import ViewButton from "./view/components/button";
+import ViewButton from "./view/components/button/button";
 import ComponentIndex from "./view/components/_index";
 import ViewInput from "./view/components/input";
 import ViewIcon from "./view/components/icon";
