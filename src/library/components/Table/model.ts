@@ -10,7 +10,7 @@ export interface Model {
 
 type ColumnAlign = 'start' | 'center' | 'justify' | 'end';
 type ColumnDataType = 'text' | 'number' | 'array' | 'array_code' | 'action';
-interface Columns {
+export interface Columns {
     key: string;
     title: string;
     align?: ColumnAlign;

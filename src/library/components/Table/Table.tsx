@@ -135,7 +135,11 @@ const Table: React.FC<Model> = (model: Model) => {
                           </div>
                         );
                       default:
-                        return <p>{element[item.key]}</p>;
+                        return (
+                          <article className="text-pretty leading-5 ">
+                            {element[item.key]}
+                          </article>
+                        );
                     }
                   })()}
                 </td>
