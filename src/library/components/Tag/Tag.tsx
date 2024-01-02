@@ -19,7 +19,7 @@ const Tag: React.FC<Model> = (model: Model) => {
       {model.type === "code" && (
         <code
           className={clsx(
-            "px-1.5 pb-0.5 w-auto rounded-md break-all bg-[#FBFBFB] border border-[#D3D3D3]",
+            "px-1.5 pb-0.5 rounded-md bg-[#FBFBFB] border border-[#D3D3D3]",
             model.className
           )}
         >
