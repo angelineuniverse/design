@@ -23,7 +23,7 @@ function App() {
         <Sidenav />
       </div>
       <div className="md:col-span-5 overflow-y-auto relative">
-        <div className="md:w-8/12 md:px-8 pb-20">
+        <div className="md:w-9/12 md:px-8 pb-20">
           <Outlet />
         </div>
         <div className="md:fixed bottom-3 right-5 p-5 rounded-lg bg-primary text-white md:w-[15%] text-xs font-euclidregular">
