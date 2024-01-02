@@ -24,5 +24,7 @@ jobs:
         run: npm run cli
       - name: publish to npm package
         run: npm publish --access public
+      - name: deploy pages
+        run: npm deploy
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

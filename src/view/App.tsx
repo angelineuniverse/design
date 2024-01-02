@@ -7,7 +7,7 @@ function App() {
     <div className="h-screen w-full grid grid-cols-6 overflow-hidden">
       <nav className="col-span-full h-12 px-8 bg-white md:flex gap-x-5 justify-start md:text-sm items-center border border-slate-300">
         <h2 className="text-primary font-euclidbold text-lg mr-auto">
-          Angeline
+          Angeline Design
         </h2>
         <a href="https://github.com/angelineuniverse/design" target="blank">
           <p className="py-auto ml-auto text-xs font-euclidmedium">Github</p>
