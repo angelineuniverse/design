@@ -50,9 +50,9 @@ const PrismCode = (model: Model) => {
         onClick={() => CopytoClipboard()}
       >
         {copy ? (
-          <Icon width={14} height={14} icon="check" />
+          <Icon width={14} height={14} color="#fefefe" icon="check" />
         ) : (
-          <Icon width={14} height={14} icon="copy" />
+          <Icon width={14} height={14} color="#fefefe" icon="copy" />
         )}
       </button>
     </div>

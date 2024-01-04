@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Tab, Tabs } from "../../../library";
 import PrismCode from "../../../utils/prism";
-const ViewButtonSize = () => {
+const ViewButtonSize: any = () => {
   return (
     <div>
       <Tabs

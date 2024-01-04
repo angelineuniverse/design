@@ -3,22 +3,31 @@ import React from "react";
 const ViewPendahuluan = () => {
   return (
     <div className="md:py-6 font-euclidregular">
-      <h1 className=" font-bold text-3xl text-primary font-euclidbold">
+      <h1 className=" font-bold text-3xl text-primary-light font-euclidbold">
         Angeline Design
       </h1>
+      <div className="flex md:flex-row gap-x-2 font-euclidsemi text-sm items-center md:mt-4">
+        <h4>Dari dan untuk Indonesia</h4>
+        <img
+          width="28"
+          height="28"
+          src="https://img.icons8.com/color/48/indonesia.png"
+          alt="indonesia"
+        />
+      </div>
       <h6 className="mt-5 text-lg">
         Angeline Design dibuat oleh Angeline untuk semua aplikasi website di
         dalam Angeline Universe. Panduannya merupakan kumpulan prinsip, standar,
-        dan rekomendasi sumber terbuka untuk mendesain aplikasi didalam Angeline
-        Universe. Sebagai bahasa desain, Angeline Design menyediakan tata bahasa
-        dan kosakata umum untuk membangun pengalaman yang kohesif, mudah
-        diakses, responsif, dan efisien.
+        dan rekomendasi sumber terbuka untuk mendesain aplikasi di dalam
+        Angeline Universe. Sebagai bahasa desain, Angeline Design menyediakan
+        tata bahasa dan kosakata umum untuk membangun pengalaman yang kohesif,
+        mudah diakses, responsif, dan efisien.
       </h6>
       <div className="mt-8">
-        <h2 className=" pb-4 border-b mb-5 text-xl border-b-gray-300 font-euclidsemi text-primary">
+        <h2 className=" pb-4 border-b mb-5 text-xl border-b-gray-300 font-euclidsemi text-primary-light">
           Pengalaman yang Kohesif
         </h2>
-        <p className=" font-euclidregular text-pretty tracking-wide text-sm">
+        <p className="text-pretty tracking-wide text-sm">
           Angeline Universe memiliki audiens global. Jutaan orang menggunakan
           semua aplikasi didalam Angeline Universe setiap hari dengan berbagai
           alasan dan dengan berbagai cara. Mereka semua berasal dari latar
@@ -44,10 +53,10 @@ const ViewPendahuluan = () => {
         </p>
       </div>
       <div className="mt-8">
-        <h2 className=" pb-4 border-b mb-5 text-xl border-b-gray-300 font-euclidsemi text-primary">
+        <h2 className=" pb-4 border-b mb-5 text-xl border-b-gray-300 font-euclidsemi text-primary-light">
           Desain yang responsif
         </h2>
-        <p className=" font-euclidregular text-pretty tracking-wide text-sm">
+        <p className="text-pretty tracking-wide text-sm">
           Browser ditemukan di perangkat dengan berbagai bentuk, ukuran,
           kualitas tampilan, dan metode input, jadi kita tidak bisa menganggap
           pengalaman hanya di desktop saja sudah cukup. Mendukung pengalaman
@@ -71,14 +80,19 @@ const ViewPendahuluan = () => {
         </p>
       </div>
       <div className="mt-8">
-        <h2 className=" pb-4 border-b mb-5 text-xl border-b-gray-300 font-euclidsemi text-primary">
+        <h2 className=" pb-4 border-b mb-5 text-xl border-b-gray-300 font-euclidsemi text-primary-light">
           Creator
         </h2>
         <ul className="mt-3 list-disc list-inside text-sm font-euclidmedium">
           <li>
-            <span className=" text-blue-500 cursor-pointer">
+            <a
+              href="https://github.com/priooods"
+              target="_blank"
+              rel="noreferrer"
+              className=" text-blue-500 cursor-pointer"
+            >
               Prio Dwi Sembodo
-            </span>
+            </a>
           </li>
         </ul>
       </div>
