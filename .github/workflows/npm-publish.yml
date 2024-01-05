@@ -30,6 +30,8 @@ jobs:
       - name: npm install
         run: |
           npm install
+      - name: npm install devDepedencies
+        run: |
           npm install -D tslib tailwindcss postcss rollup rollup-plugin-postcss @rollup/plugin-commonjs @rollup/plugin-node-resolve @rollup/plugin-typescript rollup-plugin-dts rollup-plugin-peer-deps-external @rollup/plugin-terser clsx
   
   publish-module:
