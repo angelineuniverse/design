@@ -30,13 +30,13 @@ jobs:
             ${{ runner.os }}-
       - name: npm install
         run: |
-          npm ci --no-optional
+          npm ci --omit=optional
           npm run build
       - name: upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: Angeline Build
-          path: "./dist/"
+          path: "./build/"
       
   publish-package:
     needs: build
@@ -47,18 +47,9 @@ jobs:
         with:
           node-version: 18
           registry-url: "https://registry.npmjs.org"
-      - name: action cache setup
-        id: cache-npm
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-            ${{ runner.os }}-
       - name: npm install
         run: |
-          npm i --no-optional
+          npm i --omit=optional
       - name: publish package
         run: |
           npm run cli
@@ -74,13 +65,13 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: Angeline Build
-          path: "./dist/"
+          path: "./build/"
       - name: upload to server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{secrets.FTP_SERVER}}
           username: ${{secrets.FTP_NAME}}
           password: ${{secrets.FTP_PASSWORD}}
-          local-dir: "./dist/"
+          local-dir: "./build/"
           server-dir: "/domains/design.angelineuniverse.com/public_html/"
 
