@@ -18,36 +18,23 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+          registry-url: "https://registry.npmjs.org"
           check-latest: true
       - name: npm install
-        run: |
-          npm ci --omit=optional
-          npm run build
-      - name: upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: Angeline Build
-          path: "./build/"
-      
-  publish-package:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          registry-url: "https://registry.npmjs.org"
-      - name: npm install
-        run: npm i --omit=optional
+        run: npm ci --omit=optional
       - name: npm install devDependencies
         run: npm i -D --omit=optional
-      - name: buidl package
+      - name: build package
         run: npm run cli
       - name: publish package
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - name: upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Angeline Build
+          path: "./build/"
 
   deploy-web:
     needs: [build]
@@ -65,5 +52,5 @@ jobs:
           username: ${{secrets.FTP_NAME}}
           password: ${{secrets.FTP_PASSWORD}}
           local-dir: "./build/"
-          server-dir: "/domains/design.angelineuniverse.com/public_html/"
+          server-dir: "/home/angeline/domains/design.angelineuniverse.com/public_html"
 
