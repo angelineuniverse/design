@@ -48,11 +48,9 @@ jobs:
           node-version: 18
           registry-url: "https://registry.npmjs.org"
       - name: npm install
-        run: |
-          npm i --omit=optional
+        run: npm i --omit=optional
       - name: buidl package
-        run: |
-          npm run cli
+        run: npm run cli
       - name: publish package
         run: npm publish --access public
         env:
