@@ -43,8 +43,16 @@ jobs:
         with:
           node-version: 18
           registry-url: "https://registry.npmjs.org"
-      - if: ${{ needs.build.steps.cache-npm.outputs.cache-hit != 'true' }}
-        name: building module
+      - name: action cache setup
+        id: cache-npm
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+            ${{ runner.os }}-
+      - name: building module
         run: |
           npm run cli
           npm publish --access public
