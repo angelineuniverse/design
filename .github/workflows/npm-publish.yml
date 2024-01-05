@@ -49,6 +49,8 @@ jobs:
           registry-url: "https://registry.npmjs.org"
       - name: npm install
         run: npm i --omit=optional
+      - name: npm install devDependencies
+        run: npm i -D --omit=optional
       - name: buidl package
         run: npm run cli
       - name: publish package
