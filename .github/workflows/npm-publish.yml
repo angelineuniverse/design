@@ -59,7 +59,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
   deploy-web:
-    needs: [build, publish-package]
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: getting artifact
