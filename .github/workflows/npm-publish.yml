@@ -21,9 +21,9 @@ jobs:
           registry-url: "https://registry.npmjs.org"
           check-latest: true
       - name: npm install
-        run: npm i --omit=optional
+        run: npm install --omit=optional
       - name: npm install devDependencies
-        run: npm i -D --omit=optional
+        run: npm install -D --omit=optional
       - name: build package
         run: npm run cli
       - name: publish package
