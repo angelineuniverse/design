@@ -22,7 +22,7 @@ jobs:
       - name: npm install
         run: npm install --omit=optional
       - name: npm install devDependencies
-        run: npm install -D --omit=optional
+        run: npm install -D tslib tailwindcss postcss rollup rollup-plugin-postcss @rollup/plugin-commonjs @rollup/plugin-node-resolve @rollup/plugin-typescript rollup-plugin-dts rollup-plugin-peer-deps-external @rollup/plugin-terser clsx
       - name: build package
         run: npm run cli
       - name: publish package
