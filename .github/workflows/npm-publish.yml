@@ -18,6 +18,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+          check-latest: true
       - name: action cache setup
         id: cache-npm
         uses: actions/cache@v3
@@ -29,12 +30,15 @@ jobs:
             ${{ runner.os }}-
       - name: npm install
         run: |
-          npm install
-      - name: npm install devDepedencies
-        run: |
-          npm install -D tslib tailwindcss postcss rollup rollup-plugin-postcss @rollup/plugin-commonjs @rollup/plugin-node-resolve @rollup/plugin-typescript rollup-plugin-dts rollup-plugin-peer-deps-external @rollup/plugin-terser clsx
-  
-  publish-module:
+          npm ci --no-optional
+          npm run build
+      - name: upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Angeline Build
+          path: "./dist/"
+      
+  publish-package:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -52,11 +56,31 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
             ${{ runner.os }}-
-      - name: building module
+      - name: npm install
+        run: |
+          npm ci --no-optional
+      - name: publish package
         run: |
           npm run cli
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-      
+
+  deploy-web:
+    needs: [build, publish-package]
+    runs-on: ubuntu-latest
+    steps:
+      - name: getting artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: Angeline Build
+          path: "./dist/"
+      - name: upload to server
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{secrets.FTP_SERVER}}
+          username: ${{secrets.FTP_NAME}}
+          password: ${{secrets.FTP_PASSWORD}}
+          local-dir: "./dist/"
+          server-dir: "/domains/design.angelineuniverse.com/public_html/"
 
