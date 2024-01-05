@@ -11,7 +11,7 @@ on:
       - "master"
 
 jobs:
-  publish-npm:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,19 +19,27 @@ jobs:
         with:
           node-version: 18
           check-latest: true
-      - name: action cache setup
-        id: cache-npm
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-            ${{ runner.os }}-
       - name: npm install
         run: |
           npm ci --omit=optional
           npm run build
+      - name: upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Angeline Build
+          path: "./build/"
+      
+  publish-package:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: "https://registry.npmjs.org"
+      - name: npm install
+        run: npm i --omit=optional
       - name: npm install devDependencies
         run: npm i -D --omit=optional
       - name: buidl package
@@ -40,14 +48,9 @@ jobs:
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-      - name: upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: Angeline Build
-          path: "./build/"
 
   deploy-web:
-    needs: [publish-npm]
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: getting artifact
