@@ -50,10 +50,11 @@ jobs:
       - name: npm install
         run: |
           npm i --omit=optional
-      - name: publish package
+      - name: buidl package
         run: |
           npm run cli
-          npm publish --access public
+      - name: publish package
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
