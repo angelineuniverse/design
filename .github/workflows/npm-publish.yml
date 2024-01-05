@@ -30,6 +30,8 @@ jobs:
           path: "./build/"
       - name: build package
         run: npm run cli
+      - name: prune devDependencies
+        run: npm prune --production
       - name: publish package
         run: npm publish --access public
         env:
