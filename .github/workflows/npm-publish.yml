@@ -58,7 +58,7 @@ jobs:
             ${{ runner.os }}-
       - name: npm install
         run: |
-          npm ci --no-optional
+          npm i --no-optional
       - name: publish package
         run: |
           npm run cli
