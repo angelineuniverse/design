@@ -3,7 +3,7 @@ import App from "./view/App";
 import React from "react";
 import ViewButton from "./view/components/button/button";
 import ComponentIndex from "./view/components/_index";
-import ViewInput from "./view/components/input";
+import ViewInput from "./view/components/input/input";
 import ViewIcon from "./view/components/icon";
 import ViewTable from "./view/components/table";
 import ViewPendahuluan from "./view/guides/pendahuluan";
