@@ -49,8 +49,8 @@ const Input: React.FC<Model> = (model: Model) => {
           {showPassword && (
             <Icon
               icon="eye"
-              width={IconSize[model.size]}
-              height={IconSize[model.size]}
+              width={IconSize[model.size ?? "xs"]}
+              height={IconSize[model.size ?? "xs"]}
               props={{
                 onClick: () => setShowPassword(!showPassword),
               }}
@@ -59,8 +59,8 @@ const Input: React.FC<Model> = (model: Model) => {
           {showPassword === false && (
             <Icon
               icon="hideEye"
-              width={IconSize[model.size]}
-              height={IconSize[model.size]}
+              width={IconSize[model.size ?? "xs"]}
+              height={IconSize[model.size ?? "xs"]}
               props={{
                 onClick: () => setShowPassword(!showPassword),
               }}
@@ -80,7 +80,7 @@ const Input: React.FC<Model> = (model: Model) => {
           model.isError
             ? "ring-1 ring-red-500 border-red-500"
             : "focus:ring-blue-500 focus:border-blue-50 dark:focus:ring-blue-500 dark:focus:border-blue-500",
-          InputSize[model.size]
+          InputSize[model.size ?? "xs"]
         )}
         onChange={model.onChange}
         onInput={(event) =>
@@ -95,10 +95,11 @@ const Input: React.FC<Model> = (model: Model) => {
               : "password"
             : model.type
         }
+        required={model.isRequired}
         placeholder={model.placeholder}
-        maxLength={model.max}
+        maxLength={model.max ?? 999}
       />
-      {model.isError && (
+      {model.isError && model.isErrorDescription && (
         <div className="mt-1 inline-flex justify-start gap-x-1 text-red-600 text-xxs items-center">
           <Icon
             icon="error"
