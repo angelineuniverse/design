@@ -16,7 +16,7 @@ export const tableColumn: Array<Columns> = [
     title: "Type",
     datatype: "array_code",
     align: "start",
-    width: "w-28",
+    width: "w-[80px]",
   },
   {
     key: "variant",
