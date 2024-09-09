@@ -1,7 +1,7 @@
 import React from "react";
-import { Table } from "../../../library";
+// import { Table } from "../../../library";
 import PrismCode from "../../../utils/prism";
-import { tableColumn, tableData } from "./model";
+// import { tableColumn, tableData } from "./model";
 import ViewButtonSize from "./example";
 function ViewButton() {
   return (
@@ -27,13 +27,13 @@ function ViewButton() {
       </div>
       <div className="mt-10">
         <h1 className="font-euclidsemi text-xl mb-6">Props</h1>
-        <Table
+        {/* <Table
           tableName="props"
           columnstyle="font-euclidsemi text-xs"
           isCompact={true}
           column={tableColumn}
           data={tableData}
-        />
+        /> */}
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ const Sidenav = () => {
       {routeConfig.map((route) => (
         <div className="md:mt-4 grid grid-cols-1 gap-5" key={route.id}>
           <div className="grid grid-cols-1 gap-3 md:px-8">
-            <h1 className="font-euclidsemi text-xs capitalize">{route.id}</h1>
+            <h1 className="font-euclidsemi text-lg capitalize">{route.id}</h1>
             {route.children.map((child) => (
               <NavLink
                 key={child.id}
@@ -18,7 +18,9 @@ const Sidenav = () => {
                 }
                 className={({ isActive }) => (isActive ? "text-secondary" : "")}
               >
-                <span className=" capitalize">{child.id}</span>
+                <span className=" capitalize text-sm font-euclidmedium">
+                  {child.id}
+                </span>
               </NavLink>
             ))}
           </div>

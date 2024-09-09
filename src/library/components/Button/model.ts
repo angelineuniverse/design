@@ -1,23 +1,15 @@
-import React from "react";
-import { Model as ModelIcon } from "../Icon/model";
+import React from 'react';
+type ButtonTheme = "primary" | "error" | "warning" | "outline" | "success";
+type ButtonSize = "extrasmall"| "small" | "medium" | "large";
+type ButtonWidth = "block" | "full";
 
-
-type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'error' | 'edit';
-type ButtonType = 'button' | 'submit';
-type ButtonSize = 'xxs' | 'xs' | 'sm' | 'lg' | 'xl';
-type ButtonWidth = 'wrap' | 'block';
-type ButtonIconDirection = 'left' | 'right';
-export interface Model{
-    label: string;
-    width?: ButtonWidth;
-    type?: ButtonType;
-    size?: ButtonSize;
-    variant?: ButtonVariant;
+export interface Model {
+    title: string;
+    className?: string;
+    theme: ButtonTheme;
+    size: ButtonSize;
+    width: ButtonWidth;
     isLoading?: boolean;
-    useIcon?: boolean;
-    iconProps?: ModelIcon;
-    iconDirection?: ButtonIconDirection;
-    prefix?: React.ReactNode;
-    anotherClass?: string,
-    props?: React.ButtonHTMLAttributes<HTMLButtonElement>
+    isDisable?: boolean;
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }

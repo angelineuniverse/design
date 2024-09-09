@@ -1,98 +1,73 @@
-import React from "react";
-import clsx from "clsx";
+import React, { Component, ReactNode } from "react";
 import { Model } from "./model";
-import Icon from "../Icon";
-const Button: React.FC<Model> = (model: Model) => {
-  const variantColor = {
-    primary: "bg-primary-light hover:bg-primary text-white",
-    secondary: "bg-secondary-light hover:bg-secondary text-white",
-    outline:
-    "bg-transparent hover:bg-slate-50 border border-slate-300 shadow-lg shadow-gray-200",
-    error: "bg-rose-500 hover:bg-rose-600 text-white",
-    edit: "bg-green-light hover:bg-green text-white",
-  };
-  const buttonWidth = {
-    wrap: "w-auto",
-    block: "w-full",
-  };
-  const buttonSize = {
-    xxs: "text-xxs px-2 py-1",
-    xs: "text-xs px-3 py-1",
-    sm: "text-sm px-3 py-1",
-    lg: "text-lg px-4 py-1",
-    xl: "text-xl px-5 py-2",
-  };
-  const buttonLoadingSize = {
-    xxs: 12,
-    xs: 14,
-    sm: 16,
-    lg: 20,
-    xl: 25,
-  };
-  return (
-    <button
-      className={clsx(
-        "font-medium tracking-wide relative",
-        "subpixel-antialiased rounded-md cursor-pointer no-underline",
-        "inline-flex justify-center items-center",
-        "ring-offset-2",
-        "focus-visible:ring-2 focus:scale-[0.98]",
-        model.useIcon
-          ? "inline-flex gap-x-1.5 items-center justify-center"
-          : "block",
-        buttonSize[model.size ?? "xxs"],
-        variantColor[model.variant ?? "primary"],
-        buttonWidth[model.width ?? "wrap"],
-        model.anotherClass
-      )}
-      {...model.props!}
-      type={model.type}
-    >
-      {model.isLoading && (
-        <>
-          {model.iconProps && (
-            <Icon
-              icon={model.iconProps.icon}
-              width={model.iconProps.width}
-              height={model.iconProps.height}
-              color={model.iconProps.color}
-              props={model.iconProps.props}
-            />
-          )}
-          {!model.iconProps && !model.useIcon && (
-            <Icon
-              icon={"loading"}
-              width={buttonLoadingSize[model.size ?? "xxs"]}
-              height={buttonLoadingSize[model.size ?? "xxs"]}
-              color={"#fff"}
-              props={{
-                className: "animate-spin mr-2",
-              }}
-            />
-          )}
-        </>
-      )}
-      {model.useIcon && model.iconDirection === "left" && (
-        <Icon
-          width={model.iconProps?.width!}
-          height={model.iconProps?.height!}
-          color={model.iconProps?.color ?? "#ffffff"}
-          icon={model.iconProps?.icon!}
-          props={model.iconProps?.props}
-        />
-      )}
-      <span>{model.label}</span>
-      {model.useIcon && model.iconDirection === "right" && (
-        <Icon
-          width={model.iconProps?.width!}
-          height={model.iconProps?.height!}
-          color={model.iconProps?.color ?? "#ffffff"}
-          icon={model.iconProps?.icon!}
-          props={model.iconProps?.props}
-        />
-      )}
-    </button>
-  );
+import { clsx } from "clsx";
+
+const theme = {
+  primary: "bg-blue-600 hover:bg-blue-500 text-white border border-blue-500",
+  success:
+    "bg-emerald-600 hover:bg-emerald-500 text-white border border-emerald-500",
+  error: "bg-rose-600 hover:bg-rose-500 text-white border border-rose-500",
+  warning:
+    "bg-yellow-600 hover:bg-yellow-500 text-white border border-yellow-500",
+  outline: "bg-white hover:bg-white text-black border border-gray-500",
 };
-// "duration-150 transition translate -translate-y-0.5 hover:translate-y-0";
+
+const sizeButton = {
+  extrasmall: "text-xs px-3 py-1.5",
+  small: "text-xsm px-4 pt-2 pb-2.5",
+  medium: "text-sm px-4 pt-2 pb-2.5",
+  large: "text-lg px-4 pt-2 pb-2.5",
+};
+
+const widthButton = {
+  block: "w-fit",
+  full: "w-full",
+};
+
+const disabled = "cursor-not-allowed bg-gray-300 border-none hover:bg-gray-300";
+
+class Button extends Component<Model> {
+  render(): ReactNode {
+    return (
+      <div className={this.props.className}>
+        <button
+          onClick={this.props.onClick}
+          className={clsx(
+            "font-intersemibold rounded-lg",
+            "flex justify-center items-center",
+            this.props.isDisable === false ? disabled : "",
+            widthButton[this.props.width],
+            sizeButton[this.props.size],
+            theme[this.props.theme]
+          )}
+        >
+          {this.props.isLoading && (
+            <svg
+              className="animate-spin mr-2.5 h-4 w-4 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-50"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="1"
+              ></circle>
+              <path
+                className="opacity-80"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
+          )}
+          {this.props.title}
+        </button>
+      </div>
+    );
+  }
+}
+
 export default Button;

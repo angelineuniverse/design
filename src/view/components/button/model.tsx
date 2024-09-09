@@ -1,37 +1,37 @@
 import { Link } from "react-router-dom";
 import { Tag } from "../../../library";
-import { Columns } from "../../../library/components/Table/model";
+// import { Columns } from "../../../library/components/Table/model";
 import React from "react";
 
-export const tableColumn: Array<Columns> = [
-  {
-    key: "attr",
-    title: "Attribute",
-    rowStyle: "font-mono",
-    align: "start",
-    width: "w-20",
-  },
-  {
-    key: "type",
-    title: "Type",
-    datatype: "array_code",
-    align: "start",
-    width: "w-[80px]",
-  },
-  {
-    key: "variant",
-    title: "Variant",
-    datatype: "array_code",
-    width: " w-24",
-  },
-  { key: "desc", title: "Deskripsi", width: "w-40" },
-  {
-    key: "default",
-    title: "Default",
-    datatype: "array_code",
-    width: "w-20",
-  },
-];
+// export const tableColumn: Array<Columns> = [
+//   {
+//     key: "attr",
+//     title: "Attribute",
+//     rowStyle: "font-mono",
+//     align: "start",
+//     width: "w-20",
+//   },
+//   {
+//     key: "type",
+//     title: "Type",
+//     datatype: "array_code",
+//     align: "start",
+//     width: "w-[80px]",
+//   },
+//   {
+//     key: "variant",
+//     title: "Variant",
+//     datatype: "array_code",
+//     width: " w-24",
+//   },
+//   { key: "desc", title: "Deskripsi", width: "w-40" },
+//   {
+//     key: "default",
+//     title: "Default",
+//     datatype: "array_code",
+//     width: "w-20",
+//   },
+// ];
 
 export const tableData: Array<any> = [
   {

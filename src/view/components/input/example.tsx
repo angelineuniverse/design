@@ -1,11 +1,11 @@
 import React from "react";
-import { Input, Tab, Tabs } from "../../../library";
-import PrismCode from "../../../utils/prism";
+// import { Input, Tab, Tabs } from "../../../library";
+// import PrismCode from "../../../utils/prism";
 const InputExample: any = () => {
-  const [value, setValue] = React.useState("");
+  // const [value, setValue] = React.useState("");
   return (
     <div>
-      <Tabs
+      {/* <Tabs
         tabDirection="vertical"
         tabSpace={"gap-x-2"}
         width="wrap"
@@ -43,7 +43,7 @@ const InputExample: any = () => {
 />`}
           />
         </Tab>
-      </Tabs>
+      </Tabs> */}
     </div>
   );
 };

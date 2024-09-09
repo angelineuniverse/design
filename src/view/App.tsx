@@ -1,7 +1,7 @@
 import React from "react";
 import Sidenav from "../utils/sidebar";
 import { Link, Outlet } from "react-router-dom";
-import { Button } from "../library";
+// import { Button } from "../library";
 function App() {
   return (
     <div className="h-screen w-full grid grid-cols-6 overflow-hidden">
@@ -10,13 +10,16 @@ function App() {
           Angeline Design
         </h2>
         <a href="https://github.com/angelineuniverse/design" target="blank">
-          <p className="py-auto ml-auto text-xs font-euclidmedium">Github</p>
+          <p className="py-auto ml-auto font-euclidmedium">Github</p>
         </a>
-        <Link to={"/tentang"}>
-          <p className="py-auto ml-auto text-xs font-euclidmedium">Issues</p>
-        </Link>
-        <Link to={"/tentang"}>
-          <p className="py-auto ml-auto text-xs font-euclidmedium">Tentang</p>
+        <a
+          href="https://github.com/angelineuniverse/design/issues"
+          target="blank"
+        >
+          <p className="py-auto ml-auto font-euclidmedium">Issues</p>
+        </a>
+        <Link to={"/"}>
+          <p className="py-auto ml-auto font-euclidmedium">Tentang</p>
         </Link>
       </nav>
       <div className="md:col-span-1 bg-blue overflow-y-auto h-screen max-h-screen border-r border-r-slate-300 py-3 relative">
@@ -35,7 +38,7 @@ function App() {
             berikan. Sampai jumpa dengan Angeline di masa depan 😁
           </p>
 
-          <Button
+          {/* <Button
             label="Donasi"
             size="sm"
             variant="secondary"
@@ -45,7 +48,7 @@ function App() {
               onClick: () =>
                 window.open("https://saweria.co/angelineuniverse", "_black"),
             }}
-          />
+          /> */}
         </div>
       </div>
     </div>

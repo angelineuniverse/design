@@ -1,5 +1,5 @@
 import React from "react";
-import { Table } from "../../library";
+// import { Table } from "../../library";
 import PrismCode from "../../utils/prism";
 const ViewTable = () => {
   return (
@@ -11,7 +11,7 @@ const ViewTable = () => {
       <h1 className="mt-10 mb-6 font-euclidsemi text-xl">Instalasi</h1>
       <PrismCode code={`import { Table } from "@angelineuniverse/design";`} />
       <h1 className="mt-10 mb-6 font-euclidsemi text-xl">Penggunaan</h1>
-      <Table
+      {/* <Table
         tableName="example-table"
         isCompact={true}
         column={[
@@ -75,7 +75,7 @@ const ViewTable = () => {
             description: "Anakin Skywalker",
           },
         ]}
-      />
+      /> */}
     </div>
   );
 };

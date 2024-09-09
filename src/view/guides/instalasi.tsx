@@ -74,7 +74,7 @@ const ViewInstalasi = () => {
         </p>
         <PrismCode
           code={`import React from "react";
-import { Button } from ".@angelineuniverse/design/Button";
+import { Button } from "@angelineuniverse/design/Button";
 
 const Index = () => {
   return (

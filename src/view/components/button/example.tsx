@@ -1,10 +1,10 @@
 import React from "react";
-import { Button, Tab, Tabs } from "../../../library";
-import PrismCode from "../../../utils/prism";
+// import { Button, Tab, Tabs } from "../../../library";
+// import PrismCode from "../../../utils/prism";
 const ViewButtonSize: any = () => {
   return (
     <div>
-      <Tabs
+      {/* <Tabs
         tabDirection="vertical"
         tabSpace={"gap-x-2"}
         width="wrap"
@@ -30,7 +30,7 @@ const ViewButtonSize: any = () => {
 />`}
           />
         </Tab>
-      </Tabs>
+      </Tabs> */}
     </div>
   );
 };

@@ -1,24 +1,22 @@
 import React from "react";
 
-type InputSize = 'xs' | 'sm' | 'lg';
-type InputWidth = 'wrap' | 'block';
-type InputType = 'text' | 'number' | 'password';
-type InputLabelPosition = 'horizontal' | 'vertical';
-
-export interface Model {
-    value: any;
-    type: InputType;
-    size: InputSize;
-    max?: number;
-    label?: string;
-    width?: InputWidth;
+type InputSize = "small" | "medium" | "large";
+type InputType = "text" | "password" | 'number' | 'textarea' | 'time' | "upload" | "date" | "datetime-local" | "month";
+export interface ModelInput {
+    defaultValue?: any;
+    label: string;
+    placeholder?: string;
+    size?: InputSize;
+    type?: InputType;
+    accept?: string;
+    filename?: string;
+    preview_action?: string;
+    preview?: any;
+    readonly?: boolean;
+    autosize?: boolean;
+    className?: string;
+    onValueChange?: any;
     isRequired?: boolean;
-    isError?: boolean;
-    isErrorDescription?: string;
-    labelPosition?: InputLabelPosition;
-    placeholder?: string,
     description?: string;
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
-    onValueChange?: any;
-    props?: React.InputHTMLAttributes<HTMLInputElement>
 }
