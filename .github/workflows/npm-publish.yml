@@ -56,4 +56,3 @@ jobs:
           local-dir: "./build/"
           remote-path: "/"
           remote-port: 21
-
