@@ -38,7 +38,7 @@ jobs:
       #     NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
   deploy-web:
-    # needs: [build]
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: getting artifact
@@ -53,5 +53,5 @@ jobs:
           username: ${{secrets.FTP_NAME}}
           password: ${{secrets.FTP_PASSWORD}}
           local-dir: "./build/"
-          server-dir: "/design"
+          server-dir: "/"
 
