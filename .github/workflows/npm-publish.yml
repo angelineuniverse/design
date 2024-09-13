@@ -47,11 +47,10 @@ jobs:
           name: Angeline Build
           path: "./build/"
       - name: upload to server
-        uses: Dylan700/sftp-upload-action@latest
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{secrets.FTP_SERVER}}
           username: ${{secrets.FTP_NAME}}
           password: ${{secrets.FTP_PASSWORD}}
-          port: 21
-          uploads: |
-            "./build/" => ./www/design/
+          local-dir: "./build/"
+          server-dir: "/"
