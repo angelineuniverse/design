@@ -1,6 +1,6 @@
 {
   "name": "@angelineuniverse/design",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": false,
   "type": "module",
   "repository": {
@@ -10,7 +10,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://design.angelineuniverse.com",
+  "homepage": "https://design.angelineuniverse.my.id",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",

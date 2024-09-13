@@ -32,10 +32,10 @@ jobs:
         run: npm run cli
       - name: prune devDependencies
         run: npm prune --production
-      # - name: publish package
-      #   run: npm publish --access public
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - name: publish package
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
   deploy-web:
     needs: [build]
