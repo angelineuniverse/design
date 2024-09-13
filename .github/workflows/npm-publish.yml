@@ -53,6 +53,5 @@ jobs:
           username: ${{secrets.FTP_NAME}}
           password: ${{secrets.FTP_PASSWORD}}
           port: 21
-          local-dir: "./build/"
           uploads: |
             "./build/" => ./www/design/
