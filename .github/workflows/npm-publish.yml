@@ -53,4 +53,4 @@ jobs:
           username: ${{secrets.FTP_NAME}}
           password: ${{secrets.FTP_PASSWORD}}
           local-dir: "./build/"
-          server-dir: "design/"
+          server-dir: "/"
