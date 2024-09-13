@@ -47,13 +47,12 @@ jobs:
           name: Angeline Build
           path: "./build/"
       - name: upload to server
-        uses: milanmk/actions-file-deployer@master
+        uses: Dylan700/sftp-upload-action@latest
         with:
-          remote-protocol: sftp
-          remote-host: ${{secrets.FTP_SERVER}}
-          remote-user: ${{secrets.FTP_NAME}}
-          remote-password: ${{secrets.FTP_PASSWORD}}
-          ssh-private-key: ${{secrets.DEPLOY_PRIVATE_KEY}}
+          server: ${{secrets.FTP_SERVER}}
+          username: ${{secrets.FTP_NAME}}
+          password: ${{secrets.FTP_PASSWORD}}
+          port: 21
           local-dir: "./build/"
-          remote-path: "/"
-          remote-port: 21
+          uploads: |
+            "./build/" => ./www/design/
