@@ -47,11 +47,12 @@ jobs:
           name: Angeline Build
           path: "./build/"
       - name: upload to server
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        uses: milanmk/actions-file-deployer@master
         with:
-          server: ${{secrets.FTP_SERVER}}
-          username: ${{secrets.FTP_NAME}}
-          password: ${{secrets.FTP_PASSWORD}}
+          remote-protocol: sftp
+          remote-host: ${{secrets.FTP_SERVER}}
+          remote-user: ${{secrets.FTP_NAME}}
+          remote-password: ${{secrets.FTP_PASSWORD}}
           local-dir: "./build/"
-          server-dir: "/"
-
+          remote-path: "/"
+          remote-port: 21
