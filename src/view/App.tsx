@@ -1,7 +1,7 @@
 import React from "react";
 import Sidenav from "../utils/sidebar";
 import { Link, Outlet } from "react-router-dom";
-// import { Button } from "../library";
+import Button from "../library/components/Button";
 function App() {
   return (
     <div className="h-screen w-full grid grid-cols-6 overflow-hidden">
@@ -37,18 +37,16 @@ function App() {
             Kami sangat mengapresiasi semua dukungan dan donasi yang anda
             berikan. Sampai jumpa dengan Angeline di masa depan 😁
           </p>
-
-          {/* <Button
-            label="Donasi"
-            size="sm"
-            variant="secondary"
-            width="block"
-            anotherClass="mt-5 font-euclidsemi"
-            props={{
-              onClick: () =>
-                window.open("https://saweria.co/angelineuniverse", "_black"),
-            }}
-          /> */}
+          <Button
+            title="Donasi"
+            size="small"
+            width="full"
+            theme="primary"
+            className="mt-5 font-euclidsemi"
+            onClick={() =>
+              window.open("https://saweria.co/angelineuniverse", "_black")
+            }
+          />
         </div>
       </div>
     </div>

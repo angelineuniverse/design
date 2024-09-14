@@ -64,7 +64,7 @@ const ViewInstalasi = () => {
         <p className="mb-7">
           Setelah melakukan instalasi package tambahan dan Angeline Design pada
           project kamu. Lihat{" "}
-          <Link to={"component/button"}>
+          <Link to={"/component/button"}>
             <span className=" text-secondary-light font-euclidsemi">
               component
             </span>

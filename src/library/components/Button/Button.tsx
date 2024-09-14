@@ -40,6 +40,7 @@ class Button extends Component<Model> {
             sizeButton[this.props.size],
             theme[this.props.theme]
           )}
+          {...this.props.props}
         >
           {this.props.isLoading && (
             <svg
