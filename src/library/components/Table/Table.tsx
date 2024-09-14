@@ -76,7 +76,9 @@ class Table extends Component<ModelTable> {
                 )}
                 {this.props.column.length > 0 && (
                   <tr className=" uppercase">
-                    <th className="py-3 text-center text-xs px-4">No</th>
+                    {!this.props.notUseNumberRow && (
+                      <th className="py-3 text-center text-xs px-4">No</th>
+                    )}
                     {this.props.column?.map((e: any) => {
                       return (
                         <th
@@ -88,7 +90,7 @@ class Table extends Component<ModelTable> {
                               e.type === "action_status"
                               ? "text-center"
                               : "text-start",
-                            e.classNameColumn
+                            e.classNameRow
                           )}
                         >
                           {e.type === "action" ? "action" : e.name}
@@ -120,13 +122,14 @@ class Table extends Component<ModelTable> {
                       </Suspense>
                     );
                   })}
-
                 {this.props.data?.map((row, index) => {
                   return (
                     <tr key={"item-" + (row.id ?? index + 1)}>
-                      <td className="py-3 text-xs text-center font-intersemibold px-4">
-                        {index + 1}
-                      </td>
+                      {!this.props.notUseNumberRow && (
+                        <td className="py-3 text-xs text-center font-intersemibold px-4">
+                          {index + 1}
+                        </td>
+                      )}
                       {this.props.column?.map((col: ResponseColumn) => {
                         return (
                           <td
@@ -357,6 +360,24 @@ class Table extends Component<ModelTable> {
                               <p className={col.className}>
                                 {get(row, col.key) ?? "-"}
                               </p>
+                            )}
+                            {col.type === "list" && (
+                              <>
+                                {row[col.key]?.map((item: any, i: number) => (
+                                  <p
+                                    key={col.key + "-" + i}
+                                    className={clsx(
+                                      "w-fit rounded-md",
+                                      item
+                                        ? "px-1.5 pb-0.5 bg-[#FBFBFB] border border-[#D3D3D3]"
+                                        : "",
+                                      col.className
+                                    )}
+                                  >
+                                    {item}
+                                  </p>
+                                ))}
+                              </>
                             )}
                             {col.type === "currency" && (
                               <p className={col.className}>

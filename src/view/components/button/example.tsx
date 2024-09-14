@@ -1,10 +1,10 @@
 import React from "react";
-// import { Button, Tab, Tabs } from "../../../library";
-// import PrismCode from "../../../utils/prism";
+import { Button, Tab, Tabs } from "../../../library";
+import PrismCode from "../../../utils/prism";
 const ViewButtonSize: any = () => {
   return (
     <div>
-      {/* <Tabs
+      <Tabs
         tabDirection="vertical"
         tabSpace={"gap-x-2"}
         width="wrap"
@@ -13,24 +13,30 @@ const ViewButtonSize: any = () => {
         <Tab title="Example" className="">
           <div className="rounded-lg border border-gray-200 p-5 flex justify-center items-center gap-x-4 flex-col flex-wrap md:flex-row">
             <Button
-              label="Button"
-              anotherClass="h-full"
-              variant="primary"
-              size="sm"
+              width="block"
+              title="Button"
+              className="h-full"
+              theme="primary"
+              size="small"
             />
           </div>
         </Tab>
         <Tab title="Code">
           <PrismCode
             code={`<Button
-  label="Button xxs"
-  anotherClass="h-full"
-  variant="primary"
-  size="xxs"
+  width="block"
+  title="Button"
+  className="h-full"
+  theme="primary"
+  size="small"
+  props={{
+    // panggil attribute bawaan button element, example :
+    // onChange: () => {}
+  }}
 />`}
           />
         </Tab>
-      </Tabs> */}
+      </Tabs>
     </div>
   );
 };
