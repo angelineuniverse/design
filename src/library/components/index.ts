@@ -1,6 +1,6 @@
-export { default as Button } from './Button';
-export { default as Breadcrumb } from './Breadcrumb';
-export { default as Checkbox } from './Checkbox';
+export { default as Button } from './Button/index';
+export { default as Breadcrumb } from './Breadcrumb/index';
+export { default as Checkbox } from './Checkbox/index';
 export { default as Collapse } from './Collapse';
 export { default as Dialog } from './Dialog';
 export { default as Dropdown } from './Dropdown';
