@@ -1,13 +1,38 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer base {
+  @font-face {
+      font-family: interblack;
+      src: url('../assets/font/Inter-Black.ttf');
+  }
+  @font-face {
+      font-family: interextrabold;
+      src: url('../assets/font/Inter-ExtraBold.ttf');
+  }
+  @font-face {
+      font-family: interbold;
+      src: url('../assets/font/Inter-Bold.ttf');
+  }
+  @font-face {
+      font-family: intermedium;
+      src: url('../assets/font/Inter-Medium.ttf');
+  }
+  @font-face {
+      font-family: intersemibold;
+      src: url('../assets/font/Inter-SemiBold.ttf');
+  }
+  @font-face {
+      font-family: interregular;
+      src: url('../assets/font/Inter-Regular.ttf');
+  }
+  @font-face {
+      font-family: interlight;
+      src: url('../assets/font/Inter-Light.ttf');
+  }
+  @font-face {
+      font-family: interthin;
+      src: url('../assets/font/Inter-Thin.ttf');
+  }
 }

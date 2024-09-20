@@ -1,0 +1,26 @@
+# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
+
+name: Angeline Design
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy-web:
+    runs-on: ubuntu-latest
+    steps:
+      - name: getting artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: Angeline Build
+          path: "./dist/"
+      - name: upload to server
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{secrets.FTP_SERVER}}
+          username: ${{secrets.FTP_NAME}}
+          password: ${{secrets.FTP_PASSWORD}}
+          local-dir: "./dist/"
+          server-dir: "/"
