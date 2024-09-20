@@ -1,8 +1,8 @@
 {
   "name": "@angelineuniverse/design",
   "private": false,
-  "version": "0.0.5",
-  "description": "This Angeline Design UI Library",
+  "version": "0.2.3",
+  "description": "Angeline Design UI Library",
   "type": "module",
   "types": "lib/index.d.ts",
   "repository": {
