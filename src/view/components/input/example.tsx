@@ -1,12 +1,10 @@
 import React from "react";
 import { Input, Tab, Tabs } from "../../../library";
-import { Tag } from "@angelineuniverse/design";
 import PrismCode from "../../../utils/prism";
 const InputExample: any = () => {
   const [value, setValue] = React.useState("");
   return (
     <div>
-      <Tag type="code" value="testing" />
       <Tabs
         tabDirection="vertical"
         tabSpace={"gap-x-2"}
