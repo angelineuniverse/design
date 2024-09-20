@@ -24,7 +24,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Angeline Build Library
-          path: "./lib/"
+          path: "./dist/"
       - name: build package
         run: npm run cli
       - name: prune devDependencies
