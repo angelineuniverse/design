@@ -14,19 +14,21 @@ const rollup = [
       {
         file: packageJson.main,
         format: "cjs",
-        sourcemap: true,
       },
       {
         file: packageJson.module,
         format: "esm",
-        sourcemap: true,
       },
     ],
     plugins: [
       peerDepsExternal(),
       resolve(),
       commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" }),
+      typescript({
+        tsconfig: "./tsconfig.json",
+        sourceMap: true,
+        inlineSources: true,
+      }),
       postcss({
         config: {
           path: "./postcss.config.cjs",
