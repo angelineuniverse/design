@@ -12,13 +12,14 @@ const ViewButtonSize: any = () => {
       >
         <Tab title="Example" className="">
           <div className="rounded-lg border border-gray-200 p-5 flex justify-center items-center gap-x-4 flex-col flex-wrap md:flex-row">
+            {/*
             <Button
               width="block"
               title="Button"
               className="h-full"
               theme="primary"
               size="small"
-            />
+            /> */}
           </div>
         </Tab>
         <Tab title="Code">

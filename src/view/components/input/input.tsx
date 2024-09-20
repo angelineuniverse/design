@@ -1,8 +1,8 @@
 import React from "react";
 import PrismCode from "../../../utils/prism";
 import InputExample from "./example";
-// import { Table } from "../../../library";
-// import { tableColumn, tableData } from "./model";
+import { Table } from "../../../library";
+import { tableColumn, tableData } from "./model";
 
 const ViewInput = () => {
   return (
@@ -22,13 +22,14 @@ const ViewInput = () => {
       </div>
       <div className="mt-10">
         <h1 className="font-euclidsemi text-xl mb-6">Props</h1>
-        {/* <Table
-          tableName="props"
-          columnstyle="font-euclidsemi text-xs"
+        <Table
           isCompact={true}
+          notUseNumberRow={true}
           column={tableColumn}
           data={tableData}
-        /> */}
+          useCreate={false}
+          useHeadline={false}
+        />
       </div>
     </div>
   );

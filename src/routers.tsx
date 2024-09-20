@@ -39,8 +39,23 @@ export const routeComponent = [
     element: <ViewInput />,
   },
   {
-    id: "table",
-    path: "table",
+    id: "breadcrumb",
+    path: "breadcrumb",
+    element: <ViewTable />,
+  },
+  {
+    id: "checkbox",
+    path: "checkbox",
+    element: <ViewTable />,
+  },
+  {
+    id: "dropdown",
+    path: "dropdown",
+    element: <ViewTable />,
+  },
+  {
+    id: "select",
+    path: "select",
     element: <ViewTable />,
   },
 ];

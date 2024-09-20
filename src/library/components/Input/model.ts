@@ -20,3 +20,9 @@ export interface ModelInput {
     description?: string;
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
+
+/**
+ * ? Direction Label
+ * ? max Number for Number Input Type
+ * ? Size SMALL / MEDIUM not changed size
+ */

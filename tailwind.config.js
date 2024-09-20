@@ -3,7 +3,7 @@ module.exports = {
   content: ["./src/**/*.{html,js,ts,tsx,jsx}"],
   theme: {
     fontSize: {
-      xxs: ["10px", "14px"],
+      xsm: ["11px", "14px"],
       xs: ["12px", "16px"],
       sm: ["14px", "20px"],
       base: ["16px", "24px"],
@@ -25,6 +25,14 @@ module.exports = {
       euclidlight: ["Euclidlight"],
       euclidsemi: ["Euclidsemi"],
       mono: ["Roboto", "monospace"],
+      interblack: ["interblack"],
+      interextrabold: ["interextrabold"],
+      interbold: ["interbold"],
+      intermedium: ["intermedium"],
+      intersemibold: ["intersemibold"],
+      interregular: ["interregular"],
+      interlight: ["interlight"],
+      interthin: ["interthin"],
     },
     extend: {
       colors: {

@@ -4,19 +4,19 @@ import { clsx } from "clsx";
 import Icon from "../Icon/Icon";
 
 const sizeLabel = {
-  small: "text-xsm",
+  small: "text-xs",
   medium: "text-sm",
   large: "text-lg",
 };
 
 const sizeInput = {
-  small: "text-xsm px-2.5 placeholder:text-xsm",
+  small: "text-xs px-2.5 placeholder:text-xs",
   medium: "text-sm px-2.5 placeholder:text-sm",
   large: "text-lg px-3 placeholder:text-lg",
 };
 
 const sizeFont = {
-  small: "text-xsm placeholder:text-xsm",
+  small: "text-xs placeholder:text-xs",
   medium: "text-sm placeholder:text-sm",
   large: "text-lg placeholder:text-lg",
 };

@@ -71,6 +71,7 @@
     "tslib": "^2.6.2"
   },
   "optionalDependencies": {
+    "@angelineuniverse/design": "^0.2.2",
     "@types/react-syntax-highlighter": "^15.5.13",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
