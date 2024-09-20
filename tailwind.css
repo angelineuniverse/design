@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  @font-face {
+      font-family: interblack;
+      src: url('./asset/font/Inter-Black.ttf');
+  }
+  @font-face {
+      font-family: interextrabold;
+      src: url('./asset/font/Inter-ExtraBold.ttf');
+  }
+  @font-face {
+      font-family: interbold;
+      src: url('./asset/font/Inter-Bold.ttf');
+  }
+  @font-face {
+      font-family: intermedium;
+      src: url('./asset/font/Inter-Medium.ttf');
+  }
+  @font-face {
+      font-family: intersemibold;
+      src: url('./asset/font/Inter-SemiBold.ttf');
+  }
+  @font-face {
+      font-family: interregular;
+      src: url('./asset/font/Inter-Regular.ttf');
+  }
+  @font-face {
+      font-family: interlight;
+      src: url('./asset/font/Inter-Light.ttf');
+  }
+  @font-face {
+      font-family: interthin;
+      src: url('./asset/font/Inter-Thin.ttf');
+  }
+}
