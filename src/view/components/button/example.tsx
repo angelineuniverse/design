@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Tab, Tabs } from "../../../library";
+import { Tab, Tabs } from "../../../library";
+import Button from "@angelineuniverse/design";
 import PrismCode from "../../../utils/prism";
 const ViewButtonSize: any = () => {
   return (
@@ -12,13 +13,13 @@ const ViewButtonSize: any = () => {
       >
         <Tab title="Example" className="">
           <div className="rounded-lg border border-gray-200 p-5 flex justify-center items-center gap-x-4 flex-col flex-wrap md:flex-row">
-            <Button
+            {/* <Button
               width="block"
               title="Button"
               className="h-full"
               theme="primary"
               size="small"
-            />
+            /> */}
           </div>
         </Tab>
         <Tab title="Code">
