@@ -4,7 +4,7 @@
   "version": "0.2.6",
   "description": "Angeline Design UI Library",
   "type": "module",
-  "types": "dist/index.d.ts",
+  "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/angelineuniverse/design.git"
@@ -47,9 +47,9 @@
     "tslib": "^2.7.0",
     "typescript": "^5.6.2"
   },
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
   "files": [
-    "dist"
+    "lib"
   ]
 }

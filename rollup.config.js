@@ -26,7 +26,6 @@ const rollup = [
       commonjs(),
       typescript({
         tsconfig: "./tsconfig.json",
-        sourceMap: true,
         inlineSources: true,
       }),
       postcss({
@@ -43,8 +42,8 @@ const rollup = [
     ],
   },
   {
-    input: "dist/esm/types/index.d.ts",
-    output: [{ file: "dist/index.d.ts", format: "esm" }],
+    input: "lib/esm/types/index.d.ts",
+    output: [{ file: "lib/index.d.ts", format: "esm" }],
     plugins: [dts.default()],
     external: [/\.(css|less|scss)$/],
   },
