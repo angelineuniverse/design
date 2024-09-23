@@ -5,8 +5,10 @@ import terser from "@rollup/plugin-terser";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
 import dts from "rollup-plugin-dts";
+import tailwindcss from "tailwindcss";
 
 const packageJson = require("./package.json");
+const tailwindConfig = require("./tailwind.config.js");
 const rollup = [
   {
     input: "./index.ts",
@@ -38,6 +40,9 @@ const rollup = [
         inject: {
           insertAt: "top",
         },
+        extract: "./tailwind.css",
+        module: false,
+        plugins: [tailwindcss(tailwindConfig), require("autoprefixer")],
       }),
       terser(),
     ],
