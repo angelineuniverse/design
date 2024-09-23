@@ -6,9 +6,9 @@ import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
 import dts from "rollup-plugin-dts";
 import tailwindcss from "tailwindcss";
+import * as tailwindConfig from "./tailwind.config.js";
 
 const packageJson = require("./package.json");
-const tailwindConfig = require("./tailwind.config.js");
 const rollup = [
   {
     input: "./index.ts",
