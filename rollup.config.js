@@ -6,7 +6,6 @@ import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
 import dts from "rollup-plugin-dts";
 import tailwindcss from "tailwindcss";
-import * as tailwindConfig from "./tailwind.config.js";
 
 const packageJson = require("./package.json");
 const rollup = [
@@ -41,8 +40,6 @@ const rollup = [
           insertAt: "top",
         },
         extract: "./tailwind.css",
-        module: false,
-        plugins: [tailwindcss(tailwindConfig), require("autoprefixer")],
       }),
       terser(),
     ],
