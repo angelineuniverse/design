@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./**/*.{html,js,ts,tsx,jsx}"],
+  content: [
+    "./src/component/**/*.{html,js,ts,tsx,jsx}",
+    "./src/index.ts",
+    "./src/index.html",
+  ],
   theme: {
     fontFamily: {
       mono: ["Roboto", "monospace"],

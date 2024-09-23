@@ -16,17 +16,15 @@ jobs:
         with:
           node-version: 18
           registry-url: "https://registry.npmjs.org"
-      - name: npm install
-        run: npm install --omit=optional
-      - name: npm install devDependencies
-        run: npm install -D tslib tailwindcss postcss rollup rollup-plugin-postcss @rollup/plugin-commonjs @rollup/plugin-node-resolve @rollup/plugin-typescript rollup-plugin-dts rollup-plugin-peer-deps-external @rollup/plugin-terser clsx
+      - name: npm install Dependencies
+        run: npm install
       - name: build package
         run: npm run cli
       - name: upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: Angeline Build Library
-          path: "./dist/"
+          path: "./lib/"
       - name: prune devDependencies
         run: npm prune --production
       - name: publish package
