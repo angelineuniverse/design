@@ -20,13 +20,13 @@ jobs:
         run: npm install --omit=optional
       - name: npm install devDependencies
         run: npm install -D tslib tailwindcss postcss rollup rollup-plugin-postcss @rollup/plugin-commonjs @rollup/plugin-node-resolve @rollup/plugin-typescript rollup-plugin-dts rollup-plugin-peer-deps-external @rollup/plugin-terser clsx
+      - name: build package
+        run: npm run cli
       - name: upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: Angeline Build Library
           path: "./lib/"
-      - name: build package
-        run: npm run cli
       - name: prune devDependencies
         run: npm prune --production
       - name: publish package
