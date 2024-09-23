@@ -26,7 +26,6 @@ const rollup = [
       commonjs(),
       typescript({
         tsconfig: "./tsconfig.json",
-        sourceMap: true,
         inlineSources: true,
       }),
       postcss({
