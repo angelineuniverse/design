@@ -3,20 +3,26 @@ import { ModelButton } from "./ModelButton";
 import { clsx } from "clsx";
 
 const theme = {
-  primary: "bg-blue-600 hover:bg-blue-500 text-white border border-blue-500",
+  primary:
+    "bg-primary hover:bg-primary-dark text-white border border-primary-border",
   success:
-    "bg-emerald-600 hover:bg-emerald-500 text-white border border-emerald-500",
-  error: "bg-rose-600 hover:bg-rose-500 text-white border border-rose-500",
+    "bg-success hover:bg-success-dark text-white border border-success-dark",
+  error: "bg-error hover:bg-error-dark text-white border border-error-border",
   warning:
-    "bg-yellow-600 hover:bg-yellow-500 text-white border border-yellow-500",
+    "bg-warning hover:bg-warning-dark text-black border border-warning-border",
   outline: "bg-white hover:bg-white text-black border border-gray-500",
+  "outline-primary": "bg-white text-primary border border-primary-border",
+  "outline-error": "bg-white text-error border border-error-border",
+  "outline-warning": "bg-white text-warning-dark border border-warning-dark",
+  "outline-success": "bg-white text-success-dark border border-success-dark",
+  transparent: "bg-white text-black",
 };
 
 const sizeButton = {
-  extrasmall: "text-xs px-3 py-1.5",
-  small: "text-xsm px-4 pt-2 pb-2.5",
-  medium: "text-sm px-4 pt-2 pb-2.5",
-  large: "text-lg px-4 pt-2 pb-2.5",
+  extrasmall: "text-[10.5px] px-3 py-[5px] rounded-[5px]",
+  small: "text-[12px] px-[14px] pt-[7px] pb-[8px] rounded-[6px]",
+  medium: "text-sm px-4 pt-2 pb-2.5 rounded-[7px]",
+  large: "text-[17px] px-4 pt-[7px] pb-[9px] rounded-[7px]",
 };
 
 const widthButton = {
@@ -33,7 +39,7 @@ class Button extends Component<ModelButton> {
         <button
           onClick={this.props.onClick}
           className={clsx(
-            "font-intersemibold rounded-lg",
+            "font-intermedium",
             "flex justify-center items-center",
             this.props.isDisable === false ? disabled : "",
             widthButton[this.props.width],

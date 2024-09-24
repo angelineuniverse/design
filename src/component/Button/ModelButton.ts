@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
-type ButtonTheme = "primary" | "error" | "warning" | "outline" | "success";
+type ButtonTheme = "primary" | "error" | "warning" | "success" | "outline" | "outline-primary" | "outline-error" | "outline-warning" | "outline-success" | "transparent";
 type ButtonSize = "extrasmall"| "small" | "medium" | "large";
 type ButtonWidth = "block" | "full";
 
