@@ -4,21 +4,27 @@ import { clsx } from "clsx";
 import Icon from "../Icon/Icon";
 
 const sizeLabel = {
-  small: "text-xs",
-  medium: "text-sm",
-  large: "text-lg",
+  small: "text-[10.5px]",
+  medium: "text-[13px]",
+  large: "text-[15.5px]",
+};
+
+const sizeDesc = {
+  small: "text-[9.5px]",
+  medium: "text-[11px]",
+  large: "text-[15.5px]",
 };
 
 const sizeInput = {
-  small: "text-xs px-2.5 placeholder:text-xs",
-  medium: "text-sm px-2.5 placeholder:text-sm",
-  large: "text-lg px-3 placeholder:text-lg",
+  small: "text-[10.5px] px-2 placeholder:text-[10.5px]",
+  medium: "text-[13px] px-2.5 placeholder:text-[13px]",
+  large: "text-[15.5px] px-3 placeholder:text-[15.5px]",
 };
 
 const sizeFont = {
-  small: "text-xs placeholder:text-xs",
-  medium: "text-sm placeholder:text-sm",
-  large: "text-lg placeholder:text-lg",
+  small: "text-[10.5px] placeholder:text-[10.5px]",
+  medium: "text-[13px] placeholder:text-[13px]",
+  large: "text-[15.5px] placeholder:text-[15.5px]",
 };
 
 class Input extends Component<ModelInput> {
@@ -77,17 +83,21 @@ class Input extends Component<ModelInput> {
   render(): React.ReactNode {
     return (
       <div className={this.props.className}>
-        <p
-          className={clsx(
-            "mb-1.5 font-intersemibold tracking-tight inline-block",
-            sizeLabel[this.props.size ?? "medium"]
-          )}
-        >
-          {this.props.isRequired && (
-            <span className=" text-red-500 font-intersemibold">*</span>
-          )}{" "}
-          {this.props.label}
-        </p>
+        {!this.props.hideLabel && (
+          <p
+            className={clsx(
+              "mb-1.5 font-intermedium tracking-tight inline-block",
+              sizeLabel[this.props.size ?? "medium"],
+              this.props.isSuccess ? "text-success" : "",
+              this.props.isError ? "text-error-dark" : ""
+            )}
+          >
+            {this.props.isRequired && (
+              <span className=" text-red-500 font-intermedium">*</span>
+            )}{" "}
+            {this.props.label}
+          </p>
+        )}
         {(() => {
           switch (this.props.type) {
             case "text":
@@ -109,6 +119,12 @@ class Input extends Component<ModelInput> {
                         : "",
                       "placeholder:font-interregular placeholder:text-slate-400 font-interregular",
                       "border border-gray-400/70 p-2 text-gray-900 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-400 focus:border-blue-400 block w-full",
+                      this.props.isSuccess
+                        ? "border border-success focus:ring-success focus:border-success"
+                        : "",
+                      this.props.isError
+                        ? "border border-error focus:ring-error focus:border-error"
+                        : "",
                       sizeInput[this.props.size ?? "medium"],
                       this.props.type === "password" ? "pr-10" : ""
                     )}
@@ -160,7 +176,13 @@ class Input extends Component<ModelInput> {
                   className={clsx(
                     "placeholder:font-interregular placeholder:text-slate-400 font-interregular",
                     "border border-gray-400/70 p-2 text-gray-900 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-400 focus:border-blue-400 block w-full",
-                    sizeFont[this.props.size ?? "medium"]
+                    sizeFont[this.props.size ?? "medium"],
+                    this.props.isSuccess
+                      ? "border border-success focus:ring-success focus:border-success"
+                      : "",
+                    this.props.isError
+                      ? "border border-error focus:ring-error focus:border-error"
+                      : ""
                   )}
                   defaultValue={this.props.defaultValue}
                   placeholder={this.props.placeholder ?? "Tulis disini"}
@@ -184,7 +206,13 @@ class Input extends Component<ModelInput> {
                     this.props.readonly ? "bg-gray-200 cursor-not-allowed" : "",
                     "placeholder:font-interregular placeholder:text-slate-400 font-interregular",
                     "border border-gray-400/70 p-2 text-gray-900 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-400 focus:border-blue-400 block w-full",
-                    sizeInput[this.props.size ?? "medium"]
+                    sizeInput[this.props.size ?? "medium"],
+                    this.props.isSuccess
+                      ? "border border-success focus:ring-success focus:border-success"
+                      : "",
+                    this.props.isError
+                      ? "border border-error focus:ring-error focus:border-error"
+                      : ""
                   )}
                   defaultValue={this.props.defaultValue}
                   placeholder={this.props.placeholder ?? "Tulis disini"}
@@ -273,11 +301,15 @@ class Input extends Component<ModelInput> {
                 </div>
               );
           }
-          return ( <span></span> )
         })()}
-        <i className="text-gray-500 font-interregular text-xs">
+        <div
+          className={clsx(
+            "text-gray-600/80 mt-1",
+            sizeDesc[this.props.size ?? "medium"]
+          )}
+        >
           {this.props.description}
-        </i>
+        </div>
       </div>
     );
   }

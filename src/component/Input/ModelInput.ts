@@ -5,9 +5,10 @@ type InputType = "text" | "password" | 'number' | 'textarea' | 'time' | "upload"
 export interface ModelInput {
     defaultValue?: any;
     label: string;
+    hideLabel?: boolean;
     placeholder?: string;
     size?: InputSize;
-    type?: InputType;
+    type: InputType;
     accept?: string;
     filename?: string;
     preview_action?: string;
@@ -17,12 +18,8 @@ export interface ModelInput {
     className?: string;
     onValueChange?: any;
     isRequired?: boolean;
-    description?: string;
+    isSuccess?: boolean;
+    isError?: boolean;
+    description?: string | React.ReactNode;
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
-
-/**
- * ? Direction Label
- * ? max Number for Number Input Type
- * ? Size SMALL / MEDIUM not changed size
- */
