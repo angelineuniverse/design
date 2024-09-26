@@ -40,7 +40,7 @@ class Dialog extends Component<ModelDialog> {
               className={clsx(
                 "relative",
                 "dialog border z-20 border-gray-100 shadow-2xl rounded-xl bg-white h-fit",
-                SizeDialog[this.props.size ?? "fit"] ?? this.props.size,
+                SizeDialog[this.props.size ?? "small"],
                 this.props.useHeading ? "py-3.5" : "p-5",
                 this.props.className
               )}
