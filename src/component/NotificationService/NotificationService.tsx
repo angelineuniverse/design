@@ -3,7 +3,7 @@ import React from "react";
 import Notification from "../Notification/Notification";
 import ReactDOM from "react-dom/client";
 import clsx from "clsx";
-import "./style.css";
+import "../Notification/style.css";
 export class NotificationManager {
   private containerRef: HTMLDivElement;
   private position = {
