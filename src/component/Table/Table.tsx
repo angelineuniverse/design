@@ -7,6 +7,13 @@ import Icon from "../Icon/Icon";
 const Button = React.lazy(() => import("../Button/Button"));
 const Skeleton = React.lazy(() => import("../Skeleton/Skeleton"));
 const Pagination = React.lazy(() => import("../Pagination/Pagination"));
+
+const coloring: any = {
+  success: " bg-emerald-100  text-emerald-700",
+  error: " bg-rose-100  text-rose-700",
+  warning: " bg-yellow-100  text-yellow-700",
+  info: " bg-blue-100  text-blue-700",
+};
 class Table extends Component<ModelTable> {
   previewFile(event: any) {
     const link = window.URL.createObjectURL(event);
@@ -42,7 +49,7 @@ class Table extends Component<ModelTable> {
               <Button
                 title={this.props.createTitle ?? "Buat Baru"}
                 theme="primary"
-                size="extrasmall"
+                size="small"
                 width="block"
                 isLoading={this.props.loadingCreate}
                 onClick={this.props.create}
@@ -50,14 +57,12 @@ class Table extends Component<ModelTable> {
             )}
           </div>
           {this.props.extraHeader}
-          <div className="overflow-hidden border border-gray-300 md:rounded-lg mt-3 overflow-x-auto">
+          <div className="border border-gray-300 md:rounded-md mt-3 overflow-x-auto">
             <table
-              className={clsx(
-                "w-full min-w-full divide-y divide-gray-200",
-                this.props.classNameTable
-              )}
+              aria-describedby="dataTable"
+              className={clsx("divide-y divide-gray-300 min-w-full")}
             >
-              <thead className=" font-interbold bg-gradient-to-b from-gray-100 to-gray-100">
+              <thead className=" font-interbold bg-gradient-to-b from-gray-200 to-gray-200">
                 {this.props.column.length < 1 && (
                   <tr>
                     <th className="py-3 text-center px-4">
@@ -126,7 +131,7 @@ class Table extends Component<ModelTable> {
                   return (
                     <tr key={"item-" + (row.id ?? index + 1)}>
                       {!this.props.notUseNumberRow && (
-                        <td className="py-3 text-xs text-center font-intersemibold px-4">
+                        <td className="py-2.5 text-xs text-center font-intersemibold px-4 border-b border-gray-300">
                           {index + 1}
                         </td>
                       )}
@@ -135,14 +140,14 @@ class Table extends Component<ModelTable> {
                           <td
                             key={`item-row-${col.type}-${col.key ?? col.name}-${
                               index + 1
-                            }`}
+                            }-${Math.random()}`}
                             className={clsx(
-                              "py-3 text-xs text-start font-interregular px-4",
+                              "py-2.5 text-[13px] text-start font-interregular px-4 border-b border-gray-300",
                               col.classNameRow
                             )}
                           >
                             {col.type === "array" && (
-                              <>
+                              <div>
                                 {col.child?.map(
                                   (item: ResponseColumn, n: number) => {
                                     return (
@@ -156,6 +161,21 @@ class Table extends Component<ModelTable> {
                                           <p className={clsx(item?.className)}>
                                             {get(row, item.key)}
                                           </p>
+                                        )}
+                                        {item.type === "status" && (
+                                          <div className="text-left">
+                                            <p
+                                              className={clsx(
+                                                "rounded-xl py-1 px-2.5 text-center font-intermedium w-fit",
+                                                coloring[
+                                                  row[item?.key ?? ""]?.color ??
+                                                    "success"
+                                                ]
+                                              )}
+                                            >
+                                              {get(row, item.key)?.title}
+                                            </p>
+                                          </div>
                                         )}
                                         {item.type === "date" && (
                                           <span className={item?.className}>
@@ -269,7 +289,7 @@ class Table extends Component<ModelTable> {
                                     );
                                   }
                                 )}
-                              </>
+                              </div>
                             )}
                             {col.type === "object" && (
                               <div
@@ -326,12 +346,17 @@ class Table extends Component<ModelTable> {
                               </span>
                             )}
                             {col.type === "datetime" && (
-                              <span className={col?.className}>
+                              <p
+                                className={clsx(
+                                  "min-w-[160px]",
+                                  col?.className
+                                )}
+                              >
                                 {format(
                                   get(row, col.key),
                                   "dd MMMM yyyy HH:mm"
                                 )}
-                              </span>
+                              </p>
                             )}
                             {col.type === "date-prefix" && (
                               <p>
@@ -357,35 +382,39 @@ class Table extends Component<ModelTable> {
                               </p>
                             )}
                             {col.type === "string" && (
-                              <p className={col.className}>
+                              <p
+                                className={clsx(
+                                  "text-pretty min-w-[400px] max-w-[401px]",
+                                  col.className
+                                )}
+                              >
                                 {get(row, col.key) ?? "-"}
                               </p>
                             )}
-                            {col.type === "list" && (
-                              <>
+                            {col.type === "listtag" && (
+                              <p className="">
                                 {row[col.key]?.map((item: any, i: number) => (
-                                  <p
+                                  <span
                                     key={col.key + "-" + i}
                                     className={clsx(
-                                      "w-fit rounded-md",
+                                      "w-fit rounded-md mr-1.5 mb-1.5 inline-block",
                                       item
-                                        ? "px-1.5 pb-0.5 bg-[#FBFBFB] border border-[#D3D3D3]"
-                                        : "",
-                                      col.className
+                                        ? "px-1.5 pb-0.5 bg-[#f0f0f0] border border-[#b6b6b6]"
+                                        : ""
                                     )}
                                   >
                                     {item}
-                                  </p>
+                                  </span>
                                 ))}
-                              </>
+                              </p>
                             )}
                             {col.type === "currency" && (
                               <p className={col.className}>
-                                {get(row, col.key).toLocaleString(
+                                {parseInt(get(row, col.key)).toLocaleString(
                                   col?.localecurrency ?? "id-ID",
                                   {
                                     style: "currency",
-                                    currency: col.currency ?? "IDR",
+                                    currency: col?.currency ?? "IDR",
                                     minimumFractionDigits:
                                       col?.minimumFractionDigits ?? 0,
                                   }
@@ -393,17 +422,18 @@ class Table extends Component<ModelTable> {
                               </p>
                             )}
                             {col.type === "status" && (
-                              <p className="text-center">
+                              <div className="text-center flex gap-5 justify-center">
                                 <p
                                   className={clsx(
-                                    "rounded-xl py-1.5 px-2 text-center font-interbold w-fit",
-                                    `bg-${row[col?.key ?? ""]?.color}-100`,
-                                    `text-${row[col?.key ?? ""]?.color}-800`
+                                    "rounded-xl py-1 px-2.5 text-center font-intermedium w-fit",
+                                    coloring[
+                                      row[col?.key ?? ""]?.color ?? "success"
+                                    ]
                                   )}
                                 >
                                   {get(row, col.key)?.title}
                                 </p>
-                              </p>
+                              </div>
                             )}
                             {col.type === "action" && (
                               <div className="flex justify-center flex-row gap-x-2 px-4">
@@ -503,9 +533,16 @@ class Table extends Component<ModelTable> {
               </p>
             )}
           </div>
-          <div className=" mt-5 flex justify-end">
+          <div className="mt-5 flex justify-end">
             <Suspense>
-              <Pagination {...this.props.property} />
+              <Pagination
+                {...this.props.property}
+                lastPage={this.props.lastPage}
+                firstPage={this.props.firstPage}
+                changePage={(event: number) => {
+                  this.props.changePage?this.props.changePage(event) : console.log("change page nothing");
+                }}
+              />
             </Suspense>
           </div>
         </div>

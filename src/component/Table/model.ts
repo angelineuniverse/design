@@ -20,12 +20,15 @@ export interface ModelTable{
     show?: (e: any) => void;
     edit?: (e: any) => void;
     onEvent?: (e: any, key: string) => void;
+    lastPage?: React.MouseEventHandler<HTMLButtonElement>;
+    firstPage?: React.MouseEventHandler<HTMLButtonElement>;
+    changePage?: (event: number) => void;
     custom?: any;
     extraHeader?: React.ReactNode;
     isCompact?: boolean // BELUM BERHASIL
 }
 
-type TypeColumn = "list" |"string" | "datetime" | "object" | "array" | "currency" | "action" | "date" | 'status' | "custom" | 'action_status' | "date-prefix"| "file" | "date-prefix-custom";
+type TypeColumn = "listtag" |"string" | "datetime" | "object" | "array" | "currency" | "action" | "date" | 'status' | "custom" | 'action_status' | "date-prefix"| "file" | "date-prefix-custom";
 export interface ResponseColumn{
     key: string;
     name?: string;
