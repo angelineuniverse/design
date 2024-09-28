@@ -80,18 +80,23 @@ class Select extends Component<ModelSelect> {
             <div className="rounded-md absolute list-none py-1 top-11 bg-white z-10 left-0 right-0 font-interregular border-gray-400/70 border">
               {this.props.options.map((item) => (
                 <option
-                  className="px-2 py-1.5 selected hover:bg-blue-100 cursor-pointer text-xsm"
+                  className={clsx(
+                    "px-2 py-1.5 selected hover:bg-blue-100 border-b border-gray-200 cursor-pointer text-sm",
+                    this.props.classNameOption
+                  )}
                   key={item[this.props.keyValue]}
                   value={item[this.props.keyValue]}
                   onClick={(event: any) => {
-                    this.props.onClick!(event);
+                    this.props.onClick
+                      ? this.props.onClick(event)
+                      : console.log("onClick func nothing");
                     this.setState({
-                      placeholder: item[this.props.keyoption],
+                      placeholder: item[this.props.keyOption],
                       open: false,
                     });
                   }}
                 >
-                  {get(item, this.props.keyoption)}
+                  {get(item, this.props.keyOption)}
                 </option>
               ))}
             </div>
