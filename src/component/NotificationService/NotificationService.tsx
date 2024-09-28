@@ -1,6 +1,6 @@
-import { ModelNotification } from "./ModelNotification";
+import { ModelNotification } from "../Notification/ModelNotification";
 import React from "react";
-import Notification from "./Notification";
+import Notification from "../Notification/Notification";
 import ReactDOM from "react-dom/client";
 import clsx from "clsx";
 import "./style.css";

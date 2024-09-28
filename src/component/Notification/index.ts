@@ -1,2 +1,2 @@
 export { default } from './Notification';
-export { notification } from './NotificationService';
+export { notification } from '../NotificationService/NotificationService';
