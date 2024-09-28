@@ -15,26 +15,24 @@ class Pagination extends Component<ModelPagination> {
     };
   }
 
-  componentDidUpdate(prevProps: ModelPagination): void {
-    if (prevProps.totalPage !== this.props.totalPage) {
-      const pages = paginateController(
-        this.props.totalPage,
-        this.props.currentPage
-      );
-      this.setState({
-        paginate: pages,
-      });
-    }
+  componentDidMount(): void {
+    const pages = paginateController(
+      this.props.totalPage,
+      this.props.currentPage
+    );
+    this.setState({
+      paginate: pages,
+    });
   }
 
   classpaginatePage(index: number, currentPage: number) {
     if (index + 1 !== 5 && currentPage > 3) {
       return currentPage - 4 + index + 1 === currentPage
-        ? "bg-blue-600 text-white border-blue-300"
+        ? "bg-primary text-white border-primary-border"
         : "border-gray-300";
     } else {
       return index + 1 === currentPage && currentPage <= 3
-        ? "bg-blue-600 text-white border-blue-300"
+        ? "bg-primary text-white border-primary-border"
         : "border-gray-300";
     }
   }
@@ -48,10 +46,11 @@ class Pagination extends Component<ModelPagination> {
             )}
           >
             <button
+              onClick={this.props.firstPage}
               className={clsx(
                 "border rounded p-1.5 border-gray-300",
                 this.props.currentPage > 1
-                  ? "text-black hover:border-blue-500"
+                  ? "text-black hover:border-primary-border"
                   : "text-gray-400"
               )}
               disabled={this.props.currentPage === 1}
@@ -63,15 +62,20 @@ class Pagination extends Component<ModelPagination> {
                 color={this.props.currentPage > 1 ? "#000000" : "#A9A9A9"}
               />
             </button>
-            {this.state.paginate.map((pageNumber) => {
+            {this.state.paginate?.map((pageNumber, index) => {
               if (pageNumber === dots) {
                 return <li className="mt-auto">&#8230;</li>;
               }
               return (
                 <button
+                  onClick={() => {
+                    this.props.changePage
+                      ? this.props.changePage(pageNumber)
+                      : console.log("nothing function");
+                  }}
                   className={clsx(
-                    "border rounded py-2 px-3 hover:border-blue-500"
-                    // this.classpaginatePage(index, this.props.currentPage)
+                    "border rounded py-2 px-3 hover:border-primary-border",
+                    this.classpaginatePage(index, this.props.currentPage)
                   )}
                   key={`${pageNumber}-count`}
                 >
@@ -80,10 +84,11 @@ class Pagination extends Component<ModelPagination> {
               );
             })}
             <button
+              onClick={this.props.lastPage}
               className={clsx(
                 " border rounded p-1.5 border-gray-300",
                 this.props.currentPage !== this.props.totalPage
-                  ? "text-black hover:border-blue-500"
+                  ? "text-black hover:border-primary-border"
                   : "text-gray-400"
               )}
               disabled={this.props.totalPage === 1}

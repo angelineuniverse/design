@@ -4,6 +4,9 @@ export interface ModelPagination{
     countItem: number;
     totalItem: number;
     className?: string;
+    lastPage?: React.MouseEventHandler<HTMLButtonElement>;
+    firstPage?: React.MouseEventHandler<HTMLButtonElement>;
+    changePage?: (event: number) => void
 }
 
 export interface ModelPaginationLink {
