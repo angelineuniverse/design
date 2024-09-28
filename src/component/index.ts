@@ -10,6 +10,7 @@ export { default as Notification } from './Notification';
 export { default as Pagination } from './Pagination';
 export { default as Select } from './Select';
 export { default as SelectSearch } from './SelectSearch';
+export { default as Form } from './Form';
 export { default as Skeleton } from './Skeleton';
 export { default as Table } from './Table';
 export { default as Tag } from './Tag';
