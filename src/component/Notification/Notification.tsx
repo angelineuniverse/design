@@ -29,6 +29,7 @@ class Notification extends Component<ModelNotification> {
   render(): ReactNode {
     return (
       <div
+        key={this.props.key}
         className={clsx(
           "w-fit h-fit shadow-xl rounded-xl font-interregular text-xs mb-3",
           "p-3 max-w-96",
