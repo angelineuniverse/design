@@ -1,7 +1,7 @@
 {
   "name": "@angelineuniverse/design",
   "private": false,
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Angeline Design UI Library",
   "type": "module",
   "repository": {
@@ -17,8 +17,8 @@
     "cli": "rollup -c --bundleConfigAsCjs"
   },
   "keywords": [
-    "Angeline",
-    "Universe",
+    "AngelineUniverse",
+    "Component",
     "UI"
   ],
   "author": "Prio Dwi Sembodo <priodwisembodo23@gmail.com>",
