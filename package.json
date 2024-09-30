@@ -1,7 +1,7 @@
 {
   "name": "@angelineuniverse/design",
   "private": false,
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Angeline Design UI Library",
   "type": "module",
   "repository": {
@@ -14,7 +14,7 @@
   "homepage": "https://design.angelineuniverse.my.id",
   "scripts": {
     "clean": "rm -rf dist/",
-    "cli": "rollup -c --bundleConfigAsCjs"
+    "cli": "NODE_ENV=production rollup -c --bundleConfigAsCjs"
   },
   "keywords": [
     "AngelineUniverse",

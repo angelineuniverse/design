@@ -382,7 +382,7 @@ class Table extends Component<ModelTable> {
                               </p>
                             )}
                             {col.type === "string" && (
-                              <p className={clsx("text-pretty", col.className)}>
+                              <p className={`text-pretty ${col.className}`}>
                                 {get(row, col.key) ?? "-"}
                               </p>
                             )}

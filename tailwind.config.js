@@ -5,6 +5,8 @@ module.exports = {
     "./src/index.ts",
     "./src/index.html",
   ],
+  safelist: [{ pattern: /(bg|text|border|w)-./ }],
+  variants: ["xs", "sm", "lg", "xl", "hover", "focus", "lg:hover"],
   theme: {
     fontFamily: {
       mono: ["Roboto", "monospace"],
