@@ -5,8 +5,7 @@ module.exports = {
     "./src/index.ts",
     "./src/index.html",
   ],
-  safelist: [{ pattern: /(bg|text|border|w)-./ }],
-  variants: ["xs", "sm", "lg", "xl", "hover", "focus", "lg:hover"],
+  safelist: [{ pattern: /(bg|text|border|w)-./ }, { pattern: /([a-zA-Z]+)-./ }],
   theme: {
     fontFamily: {
       mono: ["Roboto", "monospace"],
@@ -42,5 +41,9 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/aspect-ratio"),
+    require("@tailwindcss/typography"),
+  ],
 };
