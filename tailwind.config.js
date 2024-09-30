@@ -5,7 +5,12 @@ module.exports = {
     "./src/index.ts",
     "./src/index.html",
   ],
-  safelist: [{ pattern: /(bg|text|border|w)-./ }, { pattern: /([a-zA-Z]+)-./ }],
+  safelist: [
+    { pattern: /(bg|text|border|w)-./ },
+    { pattern: /([a-zA-Z]+)-./ },
+    ...[...Array(1000).keys()].flatMap((i) => [`w-[${i}px]`]),
+    ...[...Array(1000).keys()].flatMap((i) => [`h-[${i}px]`]),
+  ],
   theme: {
     fontFamily: {
       mono: ["Roboto", "monospace"],
@@ -36,8 +41,6 @@ module.exports = {
         "success-dark": "#196c38",
         "success-border": "#e2f335",
         "secondary-light": "#FB2576",
-        green: "#3A4D39",
-        "green-light": "#4F6F52",
       },
     },
   },
