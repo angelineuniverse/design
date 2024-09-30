@@ -8,6 +8,10 @@ module.exports = {
   safelist: [
     { pattern: /(bg|text|border|w)-./ },
     { pattern: /([a-zA-Z]+)-./ },
+    ...[...Array(1000).keys()].flatMap((i) => [`min-w-[${i}px]`]),
+    ...[...Array(1000).keys()].flatMap((i) => [`max-w-[${i}px]`]),
+    ...[...Array(1000).keys()].flatMap((i) => [`min-h-[${i}px]`]),
+    ...[...Array(1000).keys()].flatMap((i) => [`max-h-[${i}px]`]),
     ...[...Array(1000).keys()].flatMap((i) => [`w-[${i}px]`]),
     ...[...Array(1000).keys()].flatMap((i) => [`h-[${i}px]`]),
   ],
