@@ -421,6 +421,7 @@ class Table extends Component<ModelTable> {
                                 <p
                                   className={clsx(
                                     "rounded-xl py-1 px-2.5 text-center font-intermedium w-fit",
+                                    col.className,
                                     coloring[
                                       row[col?.key ?? ""]?.color ?? "success"
                                     ]
