@@ -417,11 +417,10 @@ class Table extends Component<ModelTable> {
                               </p>
                             )}
                             {col.type === "status" && (
-                              <div className="text-center flex gap-5 justify-center">
+                              <div className={`text-center flex gap-5 justify-center ${col.className}`}>
                                 <p
                                   className={clsx(
                                     "rounded-xl py-1 px-2.5 text-center font-intermedium w-fit",
-                                    col.className,
                                     coloring[
                                       row[col?.key ?? ""]?.color ?? "success"
                                     ]
