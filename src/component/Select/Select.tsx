@@ -87,7 +87,8 @@ class Select extends Component<ModelSelect> {
               {this.props.options.map((item) => (
                 <option
                   className={clsx(
-                    "px-2 py-1.5 selected hover:bg-blue-100 border-b border-gray-200 cursor-pointer text-sm",
+                    "px-2 py-1.5 selected hover:bg-blue-100 border-b border-gray-200 cursor-pointer",
+                    sizeInput[this.props.size ?? "medium"],
                     this.props.classNameOption
                   )}
                   key={item[this.props.keyValue]}
