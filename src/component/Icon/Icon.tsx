@@ -4,6 +4,118 @@ import { ModelIcon } from "./ModelIcon";
 class Icon extends Component<ModelIcon> {
   render(): ReactNode {
     const Icons = {
+      emoji_happy: (
+        <svg
+          width={`${this.props.width}px`}
+          height={`${this.props.height}px`}
+          className={this.props.className}
+          onClick={this.props.onClick}
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81V16.18C2 19.83 4.17 22 7.81 22H16.18C19.82 22 21.99 19.83 21.99 16.19V7.81C22 4.17 19.83 2 16.19 2ZM8.5 6.38C9.53 6.38 10.38 7.22 10.38 8.26C10.38 9.3 9.54 10.14 8.5 10.14C7.46 10.14 6.62 9.28 6.62 8.25C6.62 7.22 7.47 6.38 8.5 6.38ZM12 19.08C9.31 19.08 7.12 16.89 7.12 14.2C7.12 13.5 7.69 12.92 8.39 12.92H15.59C16.29 12.92 16.86 13.49 16.86 14.2C16.88 16.89 14.69 19.08 12 19.08ZM15.5 10.12C14.47 10.12 13.62 9.28 13.62 8.24C13.62 7.2 14.46 6.36 15.5 6.36C16.54 6.36 17.38 7.2 17.38 8.24C17.38 9.28 16.53 10.12 15.5 10.12Z"
+              fill={`${this.props.color ?? "#0f0f0f"}`}
+            ></path>
+          </g>
+        </svg>
+      ),
+      element: (
+        <svg
+          width={`${this.props.width}px`}
+          height={`${this.props.height}px`}
+          className={this.props.className}
+          onClick={this.props.onClick}
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M20.5 16.75H18.25V14.5C18.25 14.09 17.91 13.75 17.5 13.75C17.09 13.75 16.75 14.09 16.75 14.5V16.75H14.5C14.09 16.75 13.75 17.09 13.75 17.5C13.75 17.91 14.09 18.25 14.5 18.25H16.75V20.5C16.75 20.91 17.09 21.25 17.5 21.25C17.91 21.25 18.25 20.91 18.25 20.5V18.25H20.5C20.91 18.25 21.25 17.91 21.25 17.5C21.25 17.09 20.91 16.75 20.5 16.75Z"
+              fill={`${this.props.color ?? "#0f0f0f"}`}
+            ></path>
+            <path
+              d="M22 8.52V3.98C22 2.57 21.36 2 19.77 2H15.73C14.14 2 13.5 2.57 13.5 3.98V8.51C13.5 9.93 14.14 10.49 15.73 10.49H19.77C21.36 10.5 22 9.93 22 8.52Z"
+              fill={`${this.props.color ?? "#0f0f0f"}`}
+            ></path>
+            <path
+              d="M10.5 8.52V3.98C10.5 2.57 9.86 2 8.27 2H4.23C2.64 2 2 2.57 2 3.98V8.51C2 9.93 2.64 10.49 4.23 10.49H8.27C9.86 10.5 10.5 9.93 10.5 8.52Z"
+              fill={`${this.props.color ?? "#0f0f0f"}`}
+            ></path>
+            <path
+              d="M10.5 19.77V15.73C10.5 14.14 9.86 13.5 8.27 13.5H4.23C2.64 13.5 2 14.14 2 15.73V19.77C2 21.36 2.64 22 4.23 22H8.27C9.86 22 10.5 21.36 10.5 19.77Z"
+              fill={`${this.props.color ?? "#0f0f0f"}`}
+            ></path>
+          </g>
+        </svg>
+      ),
+      logout: (
+        <svg
+          width={`${this.props.width}px`}
+          height={`${this.props.height}px`}
+          className={this.props.className}
+          onClick={this.props.onClick}
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M16.8 2H14.2C11 2 9 4 9 7.2V11.25H15.25C15.66 11.25 16 11.59 16 12C16 12.41 15.66 12.75 15.25 12.75H9V16.8C9 20 11 22 14.2 22H16.79C19.99 22 21.99 20 21.99 16.8V7.2C22 4 20 2 16.8 2Z"
+              fill={`${this.props.color ?? "#0f0f0f"}`}
+            ></path>
+            <path
+              d="M4.56141 11.2498L6.63141 9.17984C6.78141 9.02984 6.85141 8.83984 6.85141 8.64984C6.85141 8.45984 6.78141 8.25984 6.63141 8.11984C6.34141 7.82984 5.86141 7.82984 5.57141 8.11984L2.22141 11.4698C1.93141 11.7598 1.93141 12.2398 2.22141 12.5298L5.57141 15.8798C5.86141 16.1698 6.34141 16.1698 6.63141 15.8798C6.92141 15.5898 6.92141 15.1098 6.63141 14.8198L4.56141 12.7498H9.00141V11.2498H4.56141Z"
+              fill={`${this.props.color ?? "#0f0f0f"}`}
+            ></path>
+          </g>
+        </svg>
+      ),
+      setting: (
+        <svg
+          width={`${this.props.width}px`}
+          height={`${this.props.height}px`}
+          className={this.props.className}
+          onClick={this.props.onClick}
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M18.9401 5.42141L13.7701 2.43141C12.7801 1.86141 11.2301 1.86141 10.2401 2.43141L5.02008 5.44141C2.95008 6.84141 2.83008 7.05141 2.83008 9.28141V14.7114C2.83008 16.9414 2.95008 17.1614 5.06008 18.5814L10.2301 21.5714C10.7301 21.8614 11.3701 22.0014 12.0001 22.0014C12.6301 22.0014 13.2701 21.8614 13.7601 21.5714L18.9801 18.5614C21.0501 17.1614 21.1701 16.9514 21.1701 14.7214V9.28141C21.1701 7.05141 21.0501 6.84141 18.9401 5.42141ZM12.0001 15.2514C10.2101 15.2514 8.75008 13.7914 8.75008 12.0014C8.75008 10.2114 10.2101 8.75141 12.0001 8.75141C13.7901 8.75141 15.2501 10.2114 15.2501 12.0014C15.2501 13.7914 13.7901 15.2514 12.0001 15.2514Z"
+              fill={`${this.props.color ?? "#0f0f0f"}`}
+            ></path>
+          </g>
+        </svg>
+      ),
       database: (
         <svg
           width={`${this.props.width}px`}
