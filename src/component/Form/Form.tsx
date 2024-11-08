@@ -85,6 +85,7 @@ class Form extends Component<ModelForm> {
                         key={item.key}
                         placeholder={item.placeholder}
                         label={item.label}
+                        description={item.description}
                         className={item.className}
                         classNameOption={item.classNameOption}
                         onClick={(event: any) => {
