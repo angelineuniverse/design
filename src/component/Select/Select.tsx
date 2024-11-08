@@ -4,15 +4,21 @@ import clsx from "clsx";
 import { get } from 'lodash';
 
 const sizeLabel = {
-  small: "text-xsm",
-  medium: "text-sm",
-  large: "text-lg",
+  small: "text-[10.5px]",
+  medium: "text-[13px]",
+  large: "text-[15.5px]",
+};
+
+const sizeDesc = {
+  small: "text-[9.5px]",
+  medium: "text-[11px]",
+  large: "text-[15.5px]",
 };
 
 const sizeInput = {
-  small: "text-xsm px-2.5 placeholder:text-xsm",
-  medium: "text-sm px-2.5 placeholder:text-sm",
-  large: "text-lg px-3 placeholder:text-lg",
+  small: "text-[10.5px] px-2 placeholder:text-[10.5px]",
+  medium: "text-[13px] px-2.5 placeholder:text-[13px]",
+  large: "text-[15.5px] px-3 placeholder:text-[15.5px]",
 };
 
 class Select extends Component<ModelSelect> {
@@ -45,7 +51,7 @@ class Select extends Component<ModelSelect> {
       <div className={this.props.className}>
         <p
           className={clsx(
-            "mb-1.5 text-gray-700 font-intersemibold tracking-tight inline-block",
+            "mb-1.5 font-intermedium tracking-tight inline-block",
             sizeLabel[this.props.size ?? "medium"]
           )}
         >
@@ -101,6 +107,14 @@ class Select extends Component<ModelSelect> {
               ))}
             </div>
           )}
+        </div>
+        <div
+          className={clsx(
+            "text-gray-600/80 mt-1",
+            sizeDesc[this.props.size ?? "medium"]
+          )}
+        >
+          {this.props.description}
         </div>
       </div>
     );

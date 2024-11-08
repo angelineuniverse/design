@@ -8,6 +8,7 @@ export interface ModelSelect {
     className?: string;
     classNameOption?: string;
     isRequired?: boolean;
+    description?: string | React.ReactNode;
     onchange?: any;
     onClick?: (e: React.MouseEventHandler<HTMLOptionElement>) => void;
     keyValue: string,
