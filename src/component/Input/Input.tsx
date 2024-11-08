@@ -21,12 +21,6 @@ const sizeInput = {
   large: "text-[15.5px] px-3 placeholder:text-[15.5px]",
 };
 
-const sizeFont = {
-  small: "text-[10.5px] placeholder:text-[10.5px]",
-  medium: "text-[13px] placeholder:text-[13px]",
-  large: "text-[15.5px] placeholder:text-[15.5px]",
-};
-
 class Input extends Component<ModelInput> {
   state: Readonly<{
     visiblePassword: boolean;
@@ -176,7 +170,7 @@ class Input extends Component<ModelInput> {
                   className={clsx(
                     "placeholder:font-interregular placeholder:text-slate-400 font-interregular",
                     "border border-gray-400/70 p-2 text-gray-900 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-400 focus:border-blue-400 block w-full",
-                    sizeFont[this.props.size ?? "medium"],
+                    sizeInput[this.props.size ?? "medium"],
                     this.props.isSuccess
                       ? "border border-success focus:ring-success focus:border-success"
                       : "",
