@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from "react";
 import { ModelSelect } from "./ModelSelect";
 import clsx from "clsx";
-import { get } from 'lodash';
+import { get } from "lodash";
 
 const sizeLabel = {
   small: "text-[10.5px]",
@@ -12,15 +12,19 @@ const sizeLabel = {
 const sizeDesc = {
   small: "text-[9.5px]",
   medium: "text-[11px]",
-  large: "text-[15.5px]",
+  large: "text-[13.5px]",
 };
 
 const sizeInput = {
   small: "text-[10.5px] px-2 placeholder:text-[10.5px]",
   medium: "text-[13px] px-2.5 placeholder:text-[13px]",
-  large: "text-[15.5px] px-3 placeholder:text-[15.5px]",
+  large: "text-[14.5px] px-3 placeholder:text-[14.5px]",
 };
-
+const sizeIcon = {
+  small: 15,
+  medium: 18,
+  large: 19,
+};
 class Select extends Component<ModelSelect> {
   state: Readonly<{
     open: boolean;
@@ -63,18 +67,14 @@ class Select extends Component<ModelSelect> {
         <div
           aria-hidden="true"
           className={clsx(
-            "border border-gray-400/70 font-interregular rounded-lg block w-full appearance-none px-0",
+            "border border-gray-400/70 font-interregular rounded-lg block w-full appearance-none",
             "focus:outline-none focus:ring-1 focus:ring-blue-400 focus:border-blue-400",
             sizeInput[this.props.size ?? "medium"],
-            "bg-no-repeat relative"
+            "bg-no-repeat relative flex flex-row items-center justify-between"
           )}
-          style={{
-            backgroundImage: `url("data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>")`,
-            backgroundPosition: "calc(100% - 0.75rem) center",
-          }}
         >
           <p
-            className="pt-[9px] pb-[9px]"
+            className="pt-[9px] pb-[9px] w-full mr-2"
             aria-hidden="true"
             onClick={() =>
               this.setState((prevState: any) => ({ open: !prevState["open"] }))
@@ -82,16 +82,52 @@ class Select extends Component<ModelSelect> {
           >
             {this.state.placeholder ?? "Pilih Item"}
           </p>
+          {this.state.placeholder && this.props.useClear && (
+            <div
+              className="cursor-pointer"
+              aria-hidden="true"
+              onClick={() => {
+                this.props.onClear
+                  ? this.props.onClear(null)
+                  : console.log("nothing on clear");
+                this.setState({
+                  placeholder: null,
+                  open: false,
+                });
+              }}
+            >
+              <svg
+                viewBox="0 0 24 24"
+                height={sizeIcon[this.props.size ?? "medium"]}
+                width={sizeIcon[this.props.size ?? "medium"]}
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM15.36 14.3C15.65 14.59 15.65 15.07 15.36 15.36C15.21 15.51 15.02 15.58 14.83 15.58C14.64 15.58 14.45 15.51 14.3 15.36L12 13.06L9.7 15.36C9.55 15.51 9.36 15.58 9.17 15.58C8.98 15.58 8.79 15.51 8.64 15.36C8.35 15.07 8.35 14.59 8.64 14.3L10.94 12L8.64 9.7C8.35 9.41 8.35 8.93 8.64 8.64C8.93 8.35 9.41 8.35 9.7 8.64L12 10.94L14.3 8.64C14.59 8.35 15.07 8.35 15.36 8.64C15.65 8.93 15.65 9.41 15.36 9.7L13.06 12L15.36 14.3Z"
+                    fill="#8f8f8f"
+                  ></path>
+                </g>
+              </svg>
+            </div>
+          )}
           {this.state.open && (
             <div className="rounded-md absolute list-none py-1 top-11 bg-white z-10 left-0 right-0 font-interregular border-gray-400/70 border">
-              {this.props.options.map((item) => (
+              {this.props.options.map((item, index) => (
                 <option
                   className={clsx(
                     "px-2 py-1.5 selected hover:bg-blue-100 border-b border-gray-200 cursor-pointer",
                     sizeInput[this.props.size ?? "medium"],
                     this.props.classNameOption
                   )}
-                  key={item[this.props.keyValue]}
+                  key={item[this.props.keyValue] + index}
                   value={item[this.props.keyValue]}
                   onClick={(event: any) => {
                     this.props.onClick

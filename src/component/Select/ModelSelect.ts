@@ -8,22 +8,12 @@ export interface ModelSelect {
     className?: string;
     classNameOption?: string;
     isRequired?: boolean;
+    useClear?: boolean;
     description?: string | React.ReactNode;
     onchange?: any;
+    onClear?: any;
     onClick?: (e: React.MouseEventHandler<HTMLOptionElement>) => void;
     keyValue: string,
     keyOption: string,
     options: Array<any>
 }
-
-export const sizeLabel = {
-    small: "text-xsm",
-    medium: "text-sm",
-    large: "text-lg",
-};
-
-export const sizeInput = {
-    small: "text-xsm px-2.5 placeholder:text-xsm",
-    medium: "text-sm px-2.5 placeholder:text-sm",
-    large: "text-lg px-3 placeholder:text-lg",
-  };
