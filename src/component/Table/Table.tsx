@@ -6,7 +6,7 @@ import { format } from "date-fns";
 import Icon from "../Icon/Icon";
 const Button = React.lazy(() => import("../Button/Button"));
 const Skeleton = React.lazy(() => import("../Skeleton/Skeleton"));
-const Pagination = React.lazy(() => import("../Pagination/Pagination"));
+const Pagination = React.lazy(() => import("../Pagination/index"));
 
 const coloring: any = {
   success: " bg-emerald-100  text-emerald-700",
@@ -84,7 +84,7 @@ class Table extends Component<ModelTable> {
                     {!this.props.notUseNumberRow && (
                       <th className="py-3 text-center text-xs px-4">No</th>
                     )}
-                    {this.props.column?.map((e: any) => {
+                    {this.props.column?.map((e: ResponseColumn) => {
                       return (
                         <th
                           key={e.name + "-" + e.type}
@@ -98,7 +98,48 @@ class Table extends Component<ModelTable> {
                             e.classNameRow
                           )}
                         >
-                          {e.type === "action" ? "action" : e.name}
+                          <div
+                            className={clsx(
+                              e.useSort
+                                ? "flex flex-row gap-x-2 items-center"
+                                : "block",
+                              "w-fit"
+                            )}
+                          >
+                            <span>
+                              {e.type === "action" ? "action" : e.name}
+                            </span>
+                            {e.useSort && (
+                              <div className="flex flex-row w-fit">
+                                <Icon
+                                  width={10}
+                                  height={10}
+                                  icon="arrow_up_light"
+                                  className="cursor-pointer"
+                                  onClick={() => {
+                                    this.props.onSort
+                                      ? this.props.onSort("asc", e.key)
+                                      : console.log(
+                                          "nothing sort up on " + e.key
+                                        );
+                                  }}
+                                />
+                                <Icon
+                                  width={10}
+                                  height={10}
+                                  className="cursor-pointer"
+                                  icon="arrow_down_light"
+                                  onClick={() => {
+                                    this.props.onSort
+                                      ? this.props.onSort("desc", e.key)
+                                      : console.log(
+                                          "nothing sort down on " + e.key
+                                        );
+                                  }}
+                                />
+                              </div>
+                            )}
+                          </div>
                         </th>
                       );
                     })}
@@ -417,7 +458,9 @@ class Table extends Component<ModelTable> {
                               </p>
                             )}
                             {col.type === "status" && (
-                              <div className={`text-center flex gap-5 justify-center ${col.className}`}>
+                              <div
+                                className={`text-center flex gap-5 justify-center ${col.className}`}
+                              >
                                 <p
                                   className={clsx(
                                     "rounded-xl py-1 px-2.5 text-center font-intermedium w-fit",
@@ -535,7 +578,9 @@ class Table extends Component<ModelTable> {
                 lastPage={this.props.lastPage}
                 firstPage={this.props.firstPage}
                 changePage={(event: number) => {
-                  this.props.changePage?this.props.changePage(event) : console.log("change page nothing");
+                  this.props.changePage
+                    ? this.props.changePage(event)
+                    : console.log("change page nothing");
                 }}
               />
             </Suspense>

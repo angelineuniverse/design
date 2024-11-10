@@ -19,6 +19,7 @@ export interface ModelTable{
     add?: (e: any) => void;
     show?: (e: any) => void;
     edit?: (e: any) => void;
+    onSort?: (type: string, key: string) => void;
     onEvent?: (e: any, key: string) => void;
     lastPage?: React.MouseEventHandler<HTMLButtonElement>;
     firstPage?: React.MouseEventHandler<HTMLButtonElement>;
@@ -43,5 +44,6 @@ export interface ResponseColumn{
     minimumFractionDigits?: number;
     className?: string;
     classNameRow?: string;
+    useSort?: boolean;
     color?: string;
 }
