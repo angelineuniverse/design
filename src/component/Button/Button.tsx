@@ -43,8 +43,7 @@ class Button extends Component<ModelButton> {
             "flex justify-center items-center",
             widthButton[this.props.width],
             sizeButton[this.props.size],
-            theme[this.props.theme],
-            this.props.isDisable === true ? disabled : ""
+            this.props.isDisable ? disabled : theme[this.props.theme]
           )}
           {...this.props.props}
         >
