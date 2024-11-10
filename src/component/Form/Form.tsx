@@ -88,6 +88,9 @@ class Form extends Component<ModelForm> {
                         description={item.description}
                         className={item.className}
                         classNameOption={item.classNameOption}
+                        onClear={() => {
+                          item[item.key!] = null;
+                        }}
                         onClick={(event: any) => {
                           item[item.key!] = event.target.value;
                         }}
