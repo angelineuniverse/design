@@ -4,6 +4,126 @@ import { ModelIcon } from "./ModelIcon";
 class Icon extends Component<ModelIcon> {
   render(): ReactNode {
     const Icons = {
+      arrow_down_light: (
+        <svg
+          width={`${this.props.width}px`}
+          height={`${this.props.height}px`}
+          className={this.props.className}
+          onClick={this.props.onClick}
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M7.33199 16.3154C6.94146 15.9248 6.3083 15.9248 5.91777 16.3154C5.52725 16.7059 5.52725 17.339 5.91777 17.7296L10.5834 22.3952C11.3644 23.1762 12.6308 23.1762 13.4118 22.3952L18.0802 17.7267C18.4707 17.3362 18.4707 16.703 18.0802 16.3125C17.6897 15.922 17.0565 15.922 16.666 16.3125L13 19.9786V2.0001C13 1.44781 12.5523 1.0001 12 1.0001C11.4477 1.0001 11 1.44781 11 2.0001V19.9833L7.33199 16.3154Z"
+              fill={`${this.props.color ?? "#0f0f0f"}`}
+            ></path>
+          </g>
+        </svg>
+      ),
+      arrow_up_light: (
+        <svg
+          width={`${this.props.width}px`}
+          height={`${this.props.height}px`}
+          className={this.props.className}
+          onClick={this.props.onClick}
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M7.33199 7.68464C6.94146 8.07517 6.3083 8.07517 5.91777 7.68464C5.52725 7.29412 5.52725 6.66095 5.91777 6.27043L10.5834 1.60483C11.3644 0.823781 12.6308 0.82378 13.4118 1.60483L18.0802 6.27327C18.4707 6.66379 18.4707 7.29696 18.0802 7.68748C17.6897 8.078 17.0565 8.078 16.666 7.68748L13 4.02145V21.9999C13 22.5522 12.5523 22.9999 12 22.9999C11.4477 22.9999 11 22.5522 11 21.9999V4.01666L7.33199 7.68464Z"
+              fill={`${this.props.color ?? "#0f0f0f"}`}
+            ></path>
+          </g>
+        </svg>
+      ),
+      sort: (
+        <svg
+          width={`${this.props.width}px`}
+          height={`${this.props.height}px`}
+          className={this.props.className}
+          onClick={this.props.onClick}
+          fill={`${this.props.color ?? "#0f0f0f"}`}
+          viewBox="0 0 1920 1920"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M1549.418 299.605V1429.62l203.915-204.032L1920 1392.255l-488.451 488.57-488.57-488.57 166.668-166.667 204.032 204.032V299.605h235.74ZM488.57 160l488.57 488.57-166.67 166.548-204.031-203.914v1129.898h-235.74V611.204L166.668 815.12 0 648.569 488.57 160Z"
+              fillRule="evenodd"
+            ></path>
+          </g>
+        </svg>
+      ),
+      arrow_up_button: (
+        <svg
+          width={`${this.props.width}px`}
+          height={`${this.props.height}px`}
+          className={this.props.className}
+          onClick={this.props.onClick}
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M18.6806 13.9783L15.4706 10.7683L13.5106 8.79828C12.6806 7.96828 11.3306 7.96828 10.5006 8.79828L5.32056 13.9783C4.64056 14.6583 5.13056 15.8183 6.08056 15.8183H11.6906H17.9206C18.8806 15.8183 19.3606 14.6583 18.6806 13.9783Z"
+              fill={`${this.props.color ?? "#0f0f0f"}`}
+            ></path>
+          </g>
+        </svg>
+      ),
+      arrow_down_button: (
+        <svg
+          width={`${this.props.width}px`}
+          height={`${this.props.height}px`}
+          className={this.props.className}
+          onClick={this.props.onClick}
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M17.9188 8.17969H11.6888H6.07877C5.11877 8.17969 4.63877 9.33969 5.31877 10.0197L10.4988 15.1997C11.3288 16.0297 12.6788 16.0297 13.5088 15.1997L15.4788 13.2297L18.6888 10.0197C19.3588 9.33969 18.8788 8.17969 17.9188 8.17969Z"
+              fill={`${this.props.color ?? "#0f0f0f"}`}
+            ></path>
+          </g>
+        </svg>
+      ),
       emoji_happy: (
         <svg
           width={`${this.props.width}px`}

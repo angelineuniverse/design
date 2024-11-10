@@ -5,6 +5,7 @@ type IconsType =
   | "error"
   | "eye"
   | "hideEye"
+  | "sort"
   | "download"
   | "arrow_down"
   | "close"
@@ -14,6 +15,8 @@ type IconsType =
   | "arrow_down_simple"
   | "arrow_prev"
   | "arrow_next"
+  | "arrow_up_light"
+  | "arrow_down_light"
   | "phone"
   | "marker"
   | "mail"
@@ -21,6 +24,12 @@ type IconsType =
   | "menu"
   | "database"
   | "person"
+  | "arrow_down_button"
+  | "arrow_up_button"
+  | "emoji_happy"
+  | "element"
+  | "logout"
+  | "setting"
   | "loading";
 export interface ModelIcon {
     icon: IconsType;
