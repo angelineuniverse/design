@@ -100,7 +100,7 @@ class Table extends Component<ModelTable> {
                                 e.type === "status" ||
                                 e.type === "action_status"
                                 ? "text-center"
-                                : "",
+                                : "text-start",
                               e.classNameRow
                             )}
                           >
