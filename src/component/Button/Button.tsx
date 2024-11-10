@@ -30,7 +30,7 @@ const widthButton = {
   full: "w-full",
 };
 
-const disabled = "cursor-not-allowed bg-gray-300 border-none hover:bg-gray-300";
+const disabled = "bg-gray-300/70 text-gray-800 cursor-not-allowed border-none";
 
 class Button extends Component<ModelButton> {
   render(): ReactNode {
@@ -41,10 +41,10 @@ class Button extends Component<ModelButton> {
           className={clsx(
             "font-intermedium",
             "flex justify-center items-center",
-            this.props.isDisable === false ? disabled : "",
             widthButton[this.props.width],
             sizeButton[this.props.size],
-            theme[this.props.theme]
+            theme[this.props.theme],
+            this.props.isDisable === true ? disabled : ""
           )}
           {...this.props.props}
         >
