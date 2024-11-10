@@ -88,22 +88,20 @@ class Table extends Component<ModelTable> {
                       return (
                         <th
                           key={e.name + "-" + e.type}
-                          className={clsx(
-                            "py-3 text-xs px-4",
-                            e.type === "action" ||
-                              e.type === "status" ||
-                              e.type === "action_status"
-                              ? "text-center"
-                              : "",
-                            e.classNameRow
-                          )}
+                          className={clsx("py-3 text-xs px-4")}
                         >
                           <div
                             className={clsx(
+                              "w-full",
                               e.useSort
                                 ? "flex flex-row gap-x-2 items-center"
                                 : "block",
-                              "w-fit"
+                              e.type === "action" ||
+                                e.type === "status" ||
+                                e.type === "action_status"
+                                ? "text-center"
+                                : "",
+                              e.classNameRow
                             )}
                           >
                             <span>
