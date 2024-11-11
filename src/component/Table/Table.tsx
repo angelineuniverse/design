@@ -12,7 +12,7 @@ const coloring: any = {
   success: " bg-emerald-100  text-emerald-700",
   error: " bg-rose-100  text-rose-700",
   warning: " bg-yellow-100  text-yellow-700",
-  info: " bg-blue-100  text-blue-700",
+  info: " bg-blue-100 text-blue-700",
 };
 class Table extends Component<ModelTable> {
   previewFile(event: any) {
@@ -570,7 +570,7 @@ class Table extends Component<ModelTable> {
             )}
           </div>
           <div className="mt-5 flex justify-end">
-            <Suspense>
+            {this.props.property && (
               <Pagination
                 {...this.props.property}
                 lastPage={this.props.lastPage}
@@ -581,7 +581,7 @@ class Table extends Component<ModelTable> {
                     : console.log("change page nothing");
                 }}
               />
-            </Suspense>
+            )}
           </div>
         </div>
       </div>
