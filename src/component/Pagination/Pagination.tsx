@@ -42,7 +42,7 @@ class Pagination extends Component<ModelPagination> {
         {this.props.totalPage && (
           <div
             className={clsx(
-              "flex justify-start gap-x-1 font-intermedium text-xsm"
+              "flex justify-start gap-x-1 font-intermedium text-xs"
             )}
           >
             <button
@@ -51,13 +51,13 @@ class Pagination extends Component<ModelPagination> {
                 "border rounded p-1.5 border-gray-300",
                 this.props.currentPage > 1
                   ? "text-black hover:border-primary-border"
-                  : "text-gray-400"
+                  : "text-gray-400 cursor-not-allowed"
               )}
               disabled={this.props.currentPage === 1}
             >
               <Icon
-                width={17}
-                height={17}
+                width={16}
+                height={16}
                 icon="arrow_prev"
                 color={this.props.currentPage > 1 ? "#000000" : "#A9A9A9"}
               />
@@ -89,13 +89,13 @@ class Pagination extends Component<ModelPagination> {
                 " border rounded p-1.5 border-gray-300",
                 this.props.currentPage !== this.props.totalPage
                   ? "text-black hover:border-primary-border"
-                  : "text-gray-400"
+                  : "text-gray-400 cursor-not-allowed"
               )}
               disabled={this.props.totalPage === 1}
             >
               <Icon
-                width={17}
-                height={17}
+                width={16}
+                height={16}
                 icon="arrow_next"
                 color={this.props.totalPage > 1 ? "#000000" : "#A9A9A9"}
               />

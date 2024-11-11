@@ -569,8 +569,8 @@ class Table extends Component<ModelTable> {
               </p>
             )}
           </div>
-          <div className="mt-5 flex justify-end">
-            {this.props.property && (
+          <div className="mt-5 flex justify-end h-fit">
+            <Suspense>
               <Pagination
                 {...this.props.property}
                 lastPage={this.props.lastPage}
@@ -581,7 +581,7 @@ class Table extends Component<ModelTable> {
                     : console.log("change page nothing");
                 }}
               />
-            )}
+            </Suspense>
           </div>
         </div>
       </div>
