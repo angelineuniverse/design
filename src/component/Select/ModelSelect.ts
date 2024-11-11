@@ -2,6 +2,8 @@ import React from "react";
 
 type InputSize = "small" | "medium" | "large";
 export interface ModelSelect {
+    key?: any;
+    value: any;
     label: string;
     size?: InputSize;
     placeholder?: string;

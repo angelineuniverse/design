@@ -28,13 +28,13 @@ const sizeIcon = {
 class Select extends Component<ModelSelect> {
   state: Readonly<{
     open: boolean;
-    placeholder: string;
+    values: any;
   }>;
   constructor(props: ModelSelect) {
     super(props);
     this.state = {
       open: false,
-      placeholder: "Pilih item",
+      values: undefined,
     };
     this.handleClickOutside = this.handleClickOutside.bind(this);
   }
@@ -47,7 +47,7 @@ class Select extends Component<ModelSelect> {
     }
   };
   componentDidMount(): void {
-    this.setState({ placeholder: this.props.placeholder });
+    this.setState({ values: this.props.value });
     document.addEventListener("mousedown", this.handleClickOutside);
   }
   render(): ReactNode {
@@ -64,6 +64,7 @@ class Select extends Component<ModelSelect> {
           )}{" "}
           {this.props.label}
         </p>
+
         <div
           aria-hidden="true"
           className={clsx(
@@ -73,27 +74,27 @@ class Select extends Component<ModelSelect> {
             "bg-no-repeat relative flex flex-row items-center justify-between"
           )}
         >
-          <p
-            className="pt-[9px] pb-[9px] w-full mr-2"
-            aria-hidden="true"
-            onClick={() =>
-              this.setState((prevState: any) => ({ open: !prevState["open"] }))
-            }
-          >
-            {this.state.placeholder ?? "Pilih Item"}
-          </p>
-          {this.state.placeholder && this.props.useClear && (
+          <input
+            type="text"
+            className="pt-[7px] pb-[7px] w-full mr-2 focus:outline-none"
+            placeholder={this.props.placeholder ?? "Pilih Item"}
+            value={this.state.values ?? undefined}
+            onClick={() => {
+              this.setState((prevState: any) => ({ open: !prevState["open"] }));
+            }}
+          />
+          {this.state.values && this.props.useClear && (
             <div
               className="cursor-pointer"
               aria-hidden="true"
               onClick={() => {
+                this.setState({
+                  values: "",
+                  open: false,
+                });
                 this.props.onClear
                   ? this.props.onClear(null)
                   : console.log("nothing on clear");
-                this.setState({
-                  placeholder: null,
-                  open: false,
-                });
               }}
             >
               <svg
@@ -134,7 +135,7 @@ class Select extends Component<ModelSelect> {
                       ? this.props.onClick(event)
                       : console.log("onClick func nothing");
                     this.setState({
-                      placeholder: item[this.props.keyOption],
+                      values: item[this.props.keyOption],
                       open: false,
                     });
                   }}
