@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from "react";
 import { ModelSelect } from "./ModelSelect";
 import clsx from "clsx";
-import { get } from "lodash";
+import { get, find } from "lodash";
 
 const sizeLabel = {
   small: "text-[10.5px]",
@@ -47,7 +47,16 @@ class Select extends Component<ModelSelect> {
     }
   };
   componentDidMount(): void {
-    this.setState({ values: this.props.value });
+    const keys = this.props.keyValue;
+    const value = this.props.value;
+    const finds = this.props.value
+      ? find(this.props.options, function (a: any) {
+          return a[keys] == value;
+        })
+      : undefined;
+    this.setState({
+      values: finds ? get(finds, this.props.keyOption) : undefined,
+    });
     document.addEventListener("mousedown", this.handleClickOutside);
   }
   render(): ReactNode {
