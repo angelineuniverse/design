@@ -83,6 +83,7 @@ class Form extends Component<ModelForm> {
                       <Select
                         isRequired={item.isRequired}
                         key={item.key}
+                        value={item[item.key]}
                         placeholder={item.placeholder}
                         label={item.label}
                         useClear={item.useClear}

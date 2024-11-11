@@ -25,6 +25,8 @@ export interface FormProps {
     children_custom?: any;
     className?: string;
     classNameOption?: string;
+    [key: string]: any;
+    useClear?: boolean;
 }
 
 interface ListProps {
