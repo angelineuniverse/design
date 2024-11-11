@@ -570,18 +570,20 @@ class Table extends Component<ModelTable> {
             )}
           </div>
           <div className="mt-5 flex justify-end h-fit">
-            <Suspense>
-              <Pagination
-                {...this.props.property}
-                lastPage={this.props.lastPage}
-                firstPage={this.props.firstPage}
-                changePage={(event: number) => {
-                  this.props.changePage
-                    ? this.props.changePage(event)
-                    : console.log("change page nothing");
-                }}
-              />
-            </Suspense>
+            {this.props.property && (
+              <Suspense>
+                <Pagination
+                  {...this.props.property}
+                  lastPage={this.props.lastPage}
+                  firstPage={this.props.firstPage}
+                  changePage={(event: number) => {
+                    this.props.changePage
+                      ? this.props.changePage(event)
+                      : console.log("change page nothing");
+                  }}
+                />
+              </Suspense>
+            )}
           </div>
         </div>
       </div>
