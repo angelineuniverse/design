@@ -6,7 +6,7 @@ import { format } from "date-fns";
 import Icon from "../Icon/Icon";
 const Button = React.lazy(() => import("../Button/Button"));
 const Skeleton = React.lazy(() => import("../Skeleton/Skeleton"));
-const Pagination = React.lazy(() => import("../Pagination/index"));
+const Pagination = React.lazy(() => import("../Pagination/Pagination"));
 
 const coloring: any = {
   success: " bg-emerald-100  text-emerald-700",
