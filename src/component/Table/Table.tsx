@@ -92,15 +92,16 @@ class Table extends Component<ModelTable> {
                         >
                           <div
                             className={clsx(
-                              "w-full",
+                              `w-full ${
+                                e.type === "action" ||
+                                e.type === "status" ||
+                                e.type === "action_status"
+                                  ? "text-center"
+                                  : ``
+                              }`,
                               e.useSort
                                 ? "flex flex-row gap-x-2 items-center"
                                 : "block",
-                              e.type === "action" ||
-                                e.type === "status" ||
-                                e.type === "action_status"
-                                ? "text-center"
-                                : "text-start",
                               e.classNameRow
                             )}
                           >
