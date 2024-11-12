@@ -104,9 +104,7 @@ class Table extends Component<ModelTable> {
                               e.classNameRow
                             )}
                           >
-                            <p className="w-fit">
-                              {e.type === "action" ? "action" : e.name}
-                            </p>
+                            <p>{e.type === "action" ? "action" : e.name}</p>
                             {e.useSort && (
                               <div className="flex flex-row w-fit">
                                 <Icon
