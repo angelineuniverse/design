@@ -88,6 +88,7 @@ class Select extends Component<ModelSelect> {
             className="pt-[7px] pb-[7px] w-full mr-2 focus:outline-none"
             placeholder={this.props.placeholder ?? "Pilih Item"}
             value={this.state.values ?? undefined}
+            onKeyDown={(e) => e.preventDefault()}
             onClick={() => {
               if (!this.props.readonly)
                 this.setState((prevState: any) => ({
