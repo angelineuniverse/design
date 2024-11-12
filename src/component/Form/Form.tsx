@@ -88,6 +88,7 @@ class Form extends Component<ModelForm> {
                         label={item.label}
                         useClear={item.useClear}
                         description={item.description}
+                        readonly={item.readonly ?? false}
                         className={item.className}
                         classNameOption={item.classNameOption}
                         onChange={(event: any) => {

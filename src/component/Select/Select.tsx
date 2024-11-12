@@ -89,10 +89,13 @@ class Select extends Component<ModelSelect> {
             placeholder={this.props.placeholder ?? "Pilih Item"}
             value={this.state.values ?? undefined}
             onClick={() => {
-              this.setState((prevState: any) => ({ open: !prevState["open"] }));
+              if (!this.props.readonly)
+                this.setState((prevState: any) => ({
+                  open: !prevState["open"],
+                }));
             }}
           />
-          {this.state.values && this.props.useClear && (
+          {!this.props.readonly && this.state.values && this.props.useClear && (
             <div
               className="cursor-pointer"
               aria-hidden="true"

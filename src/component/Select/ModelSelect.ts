@@ -11,6 +11,7 @@ export interface ModelSelect {
     classNameOption?: string;
     isRequired?: boolean;
     useClear?: boolean;
+    readonly?: boolean;
     description?: string | React.ReactNode;
     onChange?: (e: any) => void;
     onClear?: any;
