@@ -5,6 +5,7 @@ export interface ModelForm{
     lengthLoading?: number;
     preview_file?: any;
     children?: any;
+    onSelect?: (e: any,key: string) => void;
     select_option?: any;
     search_method?: (e: any) => void
 }

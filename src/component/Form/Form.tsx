@@ -90,6 +90,11 @@ class Form extends Component<ModelForm> {
                         description={item.description}
                         className={item.className}
                         classNameOption={item.classNameOption}
+                        onChange={(event: any) => {
+                          if (this.props.onSelect) {
+                            this.props.onSelect(event, item.key);
+                          }
+                        }}
                         onClear={() => {
                           item[item.key!] = null;
                         }}

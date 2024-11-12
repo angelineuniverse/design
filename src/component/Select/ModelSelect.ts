@@ -12,7 +12,7 @@ export interface ModelSelect {
     isRequired?: boolean;
     useClear?: boolean;
     description?: string | React.ReactNode;
-    onchange?: any;
+    onChange?: (e: any) => void;
     onClear?: any;
     onClick?: (e: React.MouseEventHandler<HTMLOptionElement>) => void;
     keyValue: string,

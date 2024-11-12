@@ -140,9 +140,12 @@ class Select extends Component<ModelSelect> {
                   key={item[this.props.keyValue] + index}
                   value={item[this.props.keyValue]}
                   onClick={(event: any) => {
-                    this.props.onClick
-                      ? this.props.onClick(event)
-                      : console.log("onClick func nothing");
+                    if (this.props.onClick) {
+                      this.props.onClick(event);
+                    }
+                    if (this.props.onChange) {
+                      this.props.onChange!(event);
+                    }
                     this.setState({
                       values: item[this.props.keyOption],
                       open: false,
