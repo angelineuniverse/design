@@ -87,7 +87,11 @@ class Select extends Component<ModelSelect> {
             type="text"
             className="pt-[7px] pb-[7px] w-full mr-2 focus:outline-none"
             placeholder={this.props.placeholder ?? "Pilih Item"}
-            value={this.state.values ?? undefined}
+            value={
+              this.props.value != null
+                ? this.state.values ?? undefined
+                : undefined
+            }
             onKeyDown={(e) => e.preventDefault()}
             onClick={() => {
               if (!this.props.readonly)
@@ -108,6 +112,9 @@ class Select extends Component<ModelSelect> {
                 this.props.onClear
                   ? this.props.onClear(null)
                   : console.log("nothing on clear");
+                if (this.props.onChange) {
+                  this.props.onChange!(null);
+                }
               }}
             >
               <svg
