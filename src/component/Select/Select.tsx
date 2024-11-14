@@ -28,13 +28,13 @@ const sizeIcon = {
 class Select extends Component<ModelSelect> {
   state: Readonly<{
     open: boolean;
-    values: any;
+    value: any;
   }>;
   constructor(props: ModelSelect) {
     super(props);
     this.state = {
       open: false,
-      values: undefined,
+      value: undefined,
     };
     this.handleClickOutside = this.handleClickOutside.bind(this);
   }
@@ -46,19 +46,29 @@ class Select extends Component<ModelSelect> {
       });
     }
   };
+
+  componentWillReceiveProps(nextProps: Readonly<ModelSelect>): void {
+    if (!nextProps.value) {
+      this.setState({
+        value: undefined,
+      });
+    }
+  }
+
   componentDidMount(): void {
     const keys = this.props.keyValue;
     const value = this.props.value;
     const finds = this.props.value
       ? find(this.props.options, function (a: any) {
-          return a[keys] == value;
+          return a[keys] === value;
         })
       : undefined;
     this.setState({
-      values: finds ? get(finds, this.props.keyOption) : undefined,
+      value: finds ? get(finds, this.props.keyOption) : undefined,
     });
     document.addEventListener("mousedown", this.handleClickOutside);
   }
+
   render(): ReactNode {
     return (
       <div className={this.props.className}>
@@ -70,7 +80,7 @@ class Select extends Component<ModelSelect> {
         >
           {this.props.isRequired && (
             <span className=" text-red-500 font-intersemibold">*</span>
-          )}{" "}
+          )}
           {this.props.label}
         </p>
 
@@ -84,14 +94,11 @@ class Select extends Component<ModelSelect> {
           )}
         >
           <input
+            key={this.props.keys}
             type="text"
             className="pt-[7px] pb-[7px] w-full mr-2 focus:outline-none"
             placeholder={this.props.placeholder ?? "Pilih Item"}
-            value={
-              this.props.value != null
-                ? this.state.values ?? undefined
-                : undefined
-            }
+            defaultValue={this.state.value ?? undefined}
             onKeyDown={(e) => e.preventDefault()}
             onClick={() => {
               if (!this.props.readonly)
@@ -100,18 +107,18 @@ class Select extends Component<ModelSelect> {
                 }));
             }}
           />
-          {!this.props.readonly && this.state.values && this.props.useClear && (
+          {!this.props.readonly && this.state.value && this.props.useClear && (
             <div
               className="cursor-pointer"
               aria-hidden="true"
               onClick={() => {
                 this.setState({
-                  values: "",
                   open: false,
+                  value: undefined,
                 });
-                this.props.onClear
-                  ? this.props.onClear(null)
-                  : console.log("nothing on clear");
+                if (this.props.onClear) {
+                  this.props.onClear(null);
+                }
                 if (this.props.onChange) {
                   this.props.onChange!(null);
                 }
@@ -151,15 +158,15 @@ class Select extends Component<ModelSelect> {
                   key={item[this.props.keyValue] + index}
                   value={item[this.props.keyValue]}
                   onClick={(event: any) => {
-                    if (this.props.onClick) {
-                      this.props.onClick(event);
+                    if (this.props.onSelected) {
+                      this.props.onSelected(event.target.value);
                     }
                     if (this.props.onChange) {
                       this.props.onChange!(event);
                     }
                     this.setState({
-                      values: item[this.props.keyOption],
                       open: false,
+                      value: get(item, this.props.keyOption),
                     });
                   }}
                 >

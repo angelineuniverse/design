@@ -2,7 +2,7 @@ import React from "react";
 
 type InputSize = "small" | "medium" | "large";
 export interface ModelSelect {
-    key?: any;
+    keys: any;
     value: any;
     label: string;
     size?: InputSize;
@@ -14,8 +14,8 @@ export interface ModelSelect {
     readonly?: boolean;
     description?: string | React.ReactNode;
     onChange?: (e: any) => void;
-    onClear?: any;
-    onClick?: (e: React.MouseEventHandler<HTMLOptionElement>) => void;
+    onClear?: (e: any) => void;
+    onSelected?: (value: any) => void;
     keyValue: string,
     keyOption: string,
     options: Array<any>

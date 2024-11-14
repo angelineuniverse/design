@@ -82,7 +82,7 @@ class Form extends Component<ModelForm> {
                     return (
                       <Select
                         isRequired={item.isRequired}
-                        key={item.key}
+                        keys={item.key}
                         value={item[item.key]}
                         placeholder={item.placeholder}
                         label={item.label}
@@ -97,10 +97,10 @@ class Form extends Component<ModelForm> {
                           }
                         }}
                         onClear={() => {
-                          item[item.key!] = null;
+                          item[item.key] = null;
                         }}
-                        onClick={(event: any) => {
-                          item[item.key!] = event.target.value;
+                        onSelected={(value: any) => {
+                          item[item.key] = value;
                         }}
                         keyValue={item.list?.keyValue}
                         keyOption={item.list?.keyOption}
