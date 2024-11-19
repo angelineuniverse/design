@@ -16,24 +16,23 @@ const classDirection = {
 class Tabs extends Component<ModelTabs> {
   state: Readonly<{
     selected: number;
-    tab: Array<React.ReactElement<ModelTabItem>>;
   }>;
   constructor(props: any) {
     super(props);
     this.state = {
       selected: 0,
-      tab: [],
     };
   }
   componentDidMount(): void {
     this.setState({
       selected: this.props.valueSelected,
-      tab: React.Children.toArray(this.props.children).filter(
-        (child): child is React.ReactElement =>
-          React.isValidElement(child) && child.type === TabItem
-      ),
     });
   }
+
+  tabs = React.Children.toArray(this.props.children).filter(
+    (child): child is React.ReactElement<ModelTabItem> =>
+      React.isValidElement(child) && child.type === TabItem
+  );
 
   render(): React.ReactNode {
     return (
@@ -46,7 +45,7 @@ class Tabs extends Component<ModelTabs> {
             this.props.className
           )}
         >
-          {this.state.tab.map((item, index) => (
+          {this.tabs.map((item, index) => (
             <li
               key={`tab-${index}`}
               className={clsx(
@@ -77,9 +76,11 @@ class Tabs extends Component<ModelTabs> {
           ))}
         </ul>
         <div className="mt-3">
-          {this.state.tab.filter((a) => {
-            return a.props.value === this.state.selected;
-          })}
+          {React.Children.toArray(this.props.children).filter(
+            (child): child is React.ReactElement<ModelTabItem> =>
+              React.isValidElement(child) &&
+              child.props.value === this.state.selected
+          )}
         </div>
       </div>
     );
