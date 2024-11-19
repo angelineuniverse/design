@@ -15,5 +15,5 @@ export { default as Form } from './Form';
 export { default as Skeleton } from './Skeleton';
 export { default as Table } from './Table';
 export { default as Tag } from './Tag';
-export { default as Tabs } from './Tabs';
 export { default as Tab } from './Tab';
+export { default as TabItem } from './TabItem';

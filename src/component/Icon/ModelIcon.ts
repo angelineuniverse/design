@@ -22,6 +22,7 @@ type IconsType =
   | "mail"
   | "home_simple"
   | "menu"
+  | "role"
   | "database"
   | "person"
   | "arrow_down_button"
