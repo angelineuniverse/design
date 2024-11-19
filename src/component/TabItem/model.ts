@@ -1,7 +1,7 @@
 export interface ModelTabItem {
   label: string;
   value: string | number;
-  children?: React.ReactElement;
+  children?: any;
 }
 
 export const sanitizeForId = (label: string) => {
