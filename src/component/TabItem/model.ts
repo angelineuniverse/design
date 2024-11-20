@@ -2,6 +2,7 @@ export interface ModelTabItem {
   label: string;
   value: string | number;
   children?: any;
+  onTabSelected?: (e: any) => void
 }
 
 export const sanitizeForId = (label: string) => {
