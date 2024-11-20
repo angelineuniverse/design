@@ -65,6 +65,11 @@ class Tabs extends Component<ModelTabs> {
                   this.props.classNameTabTitle
                 )}
                 onClick={() => {
+                  if (item.props.onTabSelected)
+                    item.props.onTabSelected({
+                      value: item.props.value,
+                      label: item.props.label,
+                    });
                   this.setState({
                     selected: item.props.value,
                   });
