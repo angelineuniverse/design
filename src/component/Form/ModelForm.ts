@@ -10,7 +10,7 @@ export interface ModelForm{
     search_method?: (e: any) => void
 }
 
-type FormType = "password" | "number" | "text" | "textarea" | "upload" | "time" | "date" | "datetime-local" | "month" | "select" | "select-search" | "checkbox";
+type FormType = "password" | "number" | "text" | "textarea" | "upload" | "time" | "date" | "datetime-local" | "month" | "select" | "select-search" | "checkbox" | "currency";
 type CheckboxType = 'default' | 'button';
 export interface FormProps {
     key?: string;

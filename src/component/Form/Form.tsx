@@ -53,6 +53,7 @@ class Form extends Component<ModelForm> {
                   case "date":
                   case "datetime-local":
                   case "month":
+                  case "currency":
                     return (
                       <Suspense>
                         <Input
