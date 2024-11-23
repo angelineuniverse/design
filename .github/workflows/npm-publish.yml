@@ -16,6 +16,8 @@ jobs:
         with:
           node-version: 18
           registry-url: "https://registry.npmjs.org"
+      - name: clean npm
+        run: npm cache clean --force
       - name: npm install Dependencies
         run: npm install
       - name: build package
