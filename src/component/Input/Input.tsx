@@ -21,11 +21,20 @@ const sizeInput = {
   large: "text-[15.5px] px-3 placeholder:text-[15.5px]",
 };
 
+const numberFormat = (value: any) =>
+  new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  }).format(value);
+
 class Input extends Component<ModelInput> {
   state: Readonly<{
     visiblePassword: boolean;
     files: any;
     filename: any;
+    showcurrency: any;
+    currency: any;
     refInputFile: RefObject<any>;
   }>;
   constructor(props: ModelInput) {
@@ -36,6 +45,8 @@ class Input extends Component<ModelInput> {
       files: undefined,
       filename: this.props.filename,
       refInputFile: createRef(),
+      showcurrency: undefined,
+      currency: undefined,
     };
     this.onChange = this.onChange.bind(this);
     this.changeFile = this.changeFile.bind(this);
@@ -74,6 +85,25 @@ class Input extends Component<ModelInput> {
     }
     return val;
   };
+
+  onCurrency = (value: any) => {
+    var number_string = value.replace(/[^,\d]/g, "").toString(),
+      split = number_string.split(","),
+      sisa = split[0].length % 3,
+      rupiah = split[0].substr(0, sisa),
+      ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+    if (ribuan) {
+      let separator = sisa ? "." : "";
+      rupiah += separator + ribuan.join(".");
+    }
+    rupiah = split[1] !== undefined ? rupiah + "," + split[1] : rupiah;
+    this.setState({
+      currency: number_string,
+      showcurrency: rupiah ? "Rp. " + rupiah : rupiah,
+    });
+    return rupiah ? "Rp. " + rupiah : rupiah;
+  };
+
   render(): React.ReactNode {
     return (
       <div className={this.props.className}>
@@ -292,6 +322,41 @@ class Input extends Component<ModelInput> {
                       </p>
                     </div>
                   )}
+                </div>
+              );
+            case "currency":
+              return (
+                <div className="relative">
+                  <input
+                    required={this.props.isRequired}
+                    readOnly={this.props.readonly}
+                    type="text"
+                    className={clsx(
+                      this.props.readonly
+                        ? "bg-gray-100 cursor-not-allowed placeholder:text-gray-500"
+                        : "",
+                      "placeholder:font-interregular placeholder:text-slate-400 font-interregular",
+                      "border border-gray-400/70 p-2 text-gray-900 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-400 focus:border-blue-400 block w-full",
+                      this.props.isSuccess
+                        ? "border border-success focus:ring-success focus:border-success"
+                        : "",
+                      this.props.isError
+                        ? "border border-error focus:ring-error focus:border-error"
+                        : "",
+                      sizeInput[this.props.size ?? "medium"]
+                    )}
+                    defaultValue={numberFormat(this.props.defaultValue)}
+                    value={this.state.showcurrency}
+                    placeholder={this.props.placeholder ?? "Tulis disini"}
+                    onChange={(event) => {
+                      this.onCurrency(event.target.value);
+                    }}
+                    onInput={() => {
+                      if (this.props.onValueChange) {
+                        this.props.onValueChange(parseInt(this.state.currency));
+                      }
+                    }}
+                  />
                 </div>
               );
           }

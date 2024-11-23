@@ -1,7 +1,7 @@
 import React from "react";
 
 type InputSize = "small" | "medium" | "large";
-type InputType = "text" | "password" | 'number' | 'textarea' | 'time' | "upload" | "date" | "datetime-local" | "month";
+type InputType = "text" | "password" | 'number' | 'textarea' | 'time' | "upload" | "date" | "datetime-local" | "month" | "currency";
 export interface ModelInput {
     defaultValue?: any;
     label: string;

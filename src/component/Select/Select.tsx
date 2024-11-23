@@ -80,7 +80,7 @@ class Select extends Component<ModelSelect> {
         >
           {this.props.isRequired && (
             <span className=" text-red-500 font-intersemibold">*</span>
-          )}
+          )}{" "}
           {this.props.label}
         </p>
 
