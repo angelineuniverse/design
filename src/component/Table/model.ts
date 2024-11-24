@@ -1,5 +1,6 @@
 export interface ModelTable{
     className?: string;
+    classNameTable?: string;
     useBack?: boolean;
     useCreate: boolean;
     notUseNumberRow?: boolean;

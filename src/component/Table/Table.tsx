@@ -57,7 +57,12 @@ class Table extends Component<ModelTable> {
             )}
           </div>
           {this.props.extraHeader}
-          <div className="border border-gray-300 md:rounded-md mt-3 overflow-x-auto">
+          <div
+            className={clsx(
+              "border border-gray-300 md:rounded-md mt-3 overflow-x-auto",
+              this.props.classNameTable
+            )}
+          >
             <table
               aria-describedby="dataTable"
               className={clsx("divide-y divide-gray-300 min-w-full")}
@@ -567,22 +572,22 @@ class Table extends Component<ModelTable> {
               </p>
             )}
           </div>
-        </div>
-        <div className="mt-5 flex justify-end h-fit">
-          {this.props.property && (
-            <Suspense>
-              <Pagination
-                {...this.props.property}
-                lastPage={this.props.lastPage}
-                firstPage={this.props.firstPage}
-                changePage={(event: number) => {
-                  this.props.changePage
-                    ? this.props.changePage(event)
-                    : console.log("change page nothing");
-                }}
-              />
-            </Suspense>
-          )}
+          <div className="mt-5 flex justify-end h-fit">
+            {this.props.property && (
+              <Suspense>
+                <Pagination
+                  {...this.props.property}
+                  lastPage={this.props.lastPage}
+                  firstPage={this.props.firstPage}
+                  changePage={(event: number) => {
+                    this.props.changePage
+                      ? this.props.changePage(event)
+                      : console.log("change page nothing");
+                  }}
+                />
+              </Suspense>
+            )}
+          </div>
         </div>
       </div>
     );

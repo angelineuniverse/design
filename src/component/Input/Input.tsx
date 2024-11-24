@@ -345,7 +345,11 @@ class Input extends Component<ModelInput> {
                         : "",
                       sizeInput[this.props.size ?? "medium"]
                     )}
-                    defaultValue={numberFormat(this.props.defaultValue)}
+                    defaultValue={
+                      this.props.defaultValue
+                        ? numberFormat(this.props.defaultValue)
+                        : undefined
+                    }
                     value={this.state.showcurrency}
                     placeholder={this.props.placeholder ?? "Tulis disini"}
                     onChange={(event) => {
