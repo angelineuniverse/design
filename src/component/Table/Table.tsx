@@ -59,13 +59,15 @@ class Table extends Component<ModelTable> {
           {this.props.extraHeader}
           <div
             className={clsx(
-              "border border-gray-300 md:rounded-md mt-3 overflow-x-auto",
-              this.props.classNameTable
+              "border border-gray-300 md:rounded-md mt-3 overflow-x-auto"
             )}
           >
             <table
               aria-describedby="dataTable"
-              className={clsx("divide-y divide-gray-300 min-w-full")}
+              className={clsx(
+                "divide-y divide-gray-300 min-w-full",
+                this.props.classNameTable
+              )}
             >
               <thead className=" font-interbold bg-gradient-to-b from-gray-200 to-gray-200">
                 {this.props.column.length < 1 && (
