@@ -29,6 +29,12 @@ class Tabs extends Component<ModelTabs> {
     });
   }
 
+  componentWillUnmount(): void {
+    this.setState({
+      selected: 0,
+    });
+  }
+
   tabs = React.Children.toArray(this.props.children).filter(
     (child): child is React.ReactElement<ModelTabItem> =>
       React.isValidElement(child) && child.type === TabItem
