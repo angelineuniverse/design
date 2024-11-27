@@ -22,7 +22,7 @@ class Table extends Component<ModelTable> {
   render(): ReactNode {
     return (
       <div>
-        <div className={clsx("block", this.props.className)}>
+        <div className={clsx(this.props.className)}>
           <div className="flex justify-end items-center w-full">
             {this.props.useBack && (
               <Suspense>
@@ -59,7 +59,7 @@ class Table extends Component<ModelTable> {
           {this.props.extraHeader}
           <div
             className={clsx(
-              "border border-gray-300 md:rounded-md mt-3 overflow-auto overflow-x-auto"
+              "border border-gray-300 md:rounded-md mt-3 relative"
             )}
           >
             <table
