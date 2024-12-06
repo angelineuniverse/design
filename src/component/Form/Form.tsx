@@ -168,7 +168,7 @@ class Form extends Component<ModelForm> {
                       <Suspense>
                         <Checkbox
                           label={item.label}
-                          defaultValue={item[item.key ?? ""]}
+                          checked={item[item.key ?? ""]}
                           onValueChange={(value: any) => {
                             item[item.key!] = value;
                           }}
