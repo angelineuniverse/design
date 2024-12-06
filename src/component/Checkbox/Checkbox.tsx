@@ -20,17 +20,18 @@ class Checkbox extends Component<ModelCheckbox> {
           id="checkbox"
           type="checkbox"
           checked={this.props.checked}
-          onClick={(event: any) =>
-            this.props.onValueChange
-              ? this.props.onValueChange(event.target.checked)
-              : null
-          }
+          defaultChecked={this.props.checked}
           className={clsx(
             "peer relative w-4 h-4 border rounded-sm focus:outline-none",
             "checked:bg-blue-500 my-auto accent-blue-700",
             "after:content-[''] after:w-full after:h-full after:absolute"
           )}
-          onChange={this.props.onChange}
+          onChange={(event: any) => {
+            this.props.onValueChange
+              ? this.props.onValueChange(event.target.checked)
+              : null;
+            this.props.onChange;
+          }}
         />
         <label htmlFor="checkbox" className="my-auto font-interregular text-xs">
           {this.props.label}
