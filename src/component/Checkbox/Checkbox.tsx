@@ -19,7 +19,7 @@ class Checkbox extends Component<ModelCheckbox> {
         <input
           id="checkbox"
           type="checkbox"
-          defaultValue={this.props.defaultValue}
+          value={this.props.defaultValue}
           onClick={(event: any) =>
             this.props.onValueChange
               ? this.props.onValueChange(event.target.checked)
