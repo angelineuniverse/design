@@ -1,38 +1,43 @@
-.App {
-  text-align: center;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  @font-face {
+      font-family: interblack;
+      src: url('../assets/font/Inter-Black.ttf');
   }
-  to {
-    transform: rotate(360deg);
+  @font-face {
+      font-family: interextrabold;
+      src: url('../assets/font/Inter-ExtraBold.ttf');
+  }
+  @font-face {
+      font-family: interbold;
+      src: url('../assets/font/Inter-Bold.ttf');
+  }
+  @font-face {
+      font-family: intermedium;
+      src: url('../assets/font/Inter-Medium.ttf');
+  }
+  @font-face {
+      font-family: intersemibold;
+      src: url('../assets/font/Inter-SemiBold.ttf');
+  }
+  @font-face {
+      font-family: interregular;
+      src: url('../assets/font/Inter-Regular.ttf');
+  }
+  @font-face {
+      font-family: interlight;
+      src: url('../assets/font/Inter-Light.ttf');
+  }
+  @font-face {
+      font-family: interthin;
+      src: url('../assets/font/Inter-Thin.ttf');
   }
 }
