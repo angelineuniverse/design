@@ -27,13 +27,12 @@ class Checkbox extends Component<ModelCheckbox> {
             "after:content-[''] after:w-full after:h-full after:absolute"
           )}
           onChange={(event: any) => {
-            this.props.onValueChange
-              ? this.props.onValueChange(event.target.checked)
-              : null;
-            this.props.onChange;
+            if (this.props.onValueChange)
+              this.props.onValueChange(event.target.checked);
+            if (this.props.onChange) this.props.onChange(event);
           }}
         />
-        <label htmlFor="checkbox" className="my-auto font-interregular text-xs">
+        <label className="my-auto font-interregular text-xs">
           {this.props.label}
         </label>
       </div>
