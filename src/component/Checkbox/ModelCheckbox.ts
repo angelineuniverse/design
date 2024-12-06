@@ -4,6 +4,6 @@ export interface ModelCheckbox{
     label: string,
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
     onValueChange?: any;
-    defaultValue?: any;
+    checked?: boolean;
     type?: CheckboxType;
 }
