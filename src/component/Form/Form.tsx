@@ -169,6 +169,7 @@ class Form extends Component<ModelForm> {
                         <Checkbox
                           label={item.label}
                           checked={item[item.key ?? ""]}
+                          defaultchecked={item.defaultchecked}
                           onValueChange={(value: any) => {
                             item[item.key!] = value;
                           }}

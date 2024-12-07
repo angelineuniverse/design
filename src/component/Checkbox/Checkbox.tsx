@@ -20,7 +20,7 @@ class Checkbox extends Component<ModelCheckbox> {
           id="checkbox"
           type="checkbox"
           checked={this.props.checked}
-          defaultChecked={this.props.checked}
+          defaultChecked={this.props.defaultchecked}
           className={clsx(
             "peer relative w-4 h-4 border rounded-sm focus:outline-none",
             "checked:bg-blue-500 my-auto accent-blue-700",
