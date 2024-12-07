@@ -22,7 +22,7 @@ class Checkboxs extends Component {
       <div>
         <Checkbox
           label="Simpan Perubahan"
-          value={this.state.check}
+          checked={this.state.check}
           onValueChange={(v: boolean) => this.setState({ check: v })}
         />
       </div>
