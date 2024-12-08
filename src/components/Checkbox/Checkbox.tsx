@@ -3,16 +3,15 @@ import React, { Component } from "react";
 import { ModelCheckbox } from "./ModelCheckbox";
 
 const typeStyle = {
-  default: "",
+  default: "p-0",
   button: "border border-gray-300 px-3 py-4 rounded-md",
 };
 class Checkbox extends Component<ModelCheckbox> {
   render(): React.ReactNode {
     return (
-      <div
+      <section
         className={clsx(
-          "flex justify-start gap-x-3",
-          this.props.className,
+          "flex justify-start flex-wrap gap-x-3 h-fit",
           typeStyle[this.props.type ?? "default"]
         )}
       >
@@ -32,10 +31,22 @@ class Checkbox extends Component<ModelCheckbox> {
             if (this.props.onChange) this.props.onChange(event);
           }}
         />
-        <label className="my-auto font-interregular text-xs">
+        <label
+          className={clsx(
+            this.props.classNameLabel ?? "font-interregular text-xs"
+          )}
+        >
           {this.props.label}
         </label>
-      </div>
+        <span
+          className={clsx(
+            this.props.classNameDescription ?? "font-interregular text-[11px]",
+            "w-full"
+          )}
+        >
+          {this.props.description}
+        </span>
+      </section>
     );
   }
 }

@@ -22,6 +22,8 @@ class Checkboxs extends Component {
       <div>
         <Checkbox
           label="Simpan Perubahan"
+          classNameLabel="font-interbold text-lg"
+          description="Informasi yang anda masukan adalah sebagai berikut"
           checked={this.state.check}
           onValueChange={(v: boolean) => this.setState({ check: v })}
         />
