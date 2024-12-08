@@ -19,11 +19,18 @@ class Checkboxs extends Component {
   }
   render(): ReactNode {
     return (
-      <div>
+      <div className=" flex flex-col gap-y-5">
         <Checkbox
           label="Simpan Perubahan"
           classNameLabel="font-interbold text-lg"
           description="Informasi yang anda masukan adalah sebagai berikut"
+          checked={this.state.check}
+          onValueChange={(v: boolean) => this.setState({ check: v })}
+        />
+        <Checkbox
+          label="Simpan Perubahan"
+          type="button"
+          classNameLabel="font-interbold text-xs"
           checked={this.state.check}
           onValueChange={(v: boolean) => this.setState({ check: v })}
         />
